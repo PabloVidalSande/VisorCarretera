@@ -1,0 +1,8 @@
+var AC_182_1445 = {
+"type": "FeatureCollection",
+"name": "AC-182_1445",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "N": "AC-182", "Actuaciones_IDACTUACION": 1445, "Actuaciones_IDTRAMO": 1546, "Actuaciones_CLAVEACTUACION": "AC\/06\/184.02", "Actuaciones_ESTADOACTUACION": "En Servicio", "Actuaciones_TITULOACTUACION": "Reforzo do firme na estrada AC-182, Espíritu Santo-Oleiros", "Actuaciones_CLAVETRAMO": "AC\/06\/184.02", "Actuaciones_ESTADOTRAMO": "En Servicio", "Actuaciones_TITULOTRAMO": "Reforzo do firme na estrada AC-182, Espíritu Santo-Oleiros", "Actuaciones_PKINICIO": 0.0, "Actuaciones_PKFIN": 3.36, "Actuaciones_LONGITUD": 3360, "Actuaciones_IDCARRETERA": 459, "Actuaciones_NOMENCLATURANUEVA": 1, "Actuaciones_PKIni_m": 0, "Actuaciones_PK_fin_m": 3360, "Actuaciones_Offset": -200 }, "geometry": { "type": "LineString", "coordinates": [ [ -8.29153675104104, 43.322000413803039 ], [ -8.290931087342917, 43.321618495678337 ], [ -8.289918236990404, 43.321093758587452 ], [ -8.289488246651334, 43.320785310516698 ], [ -8.288777303273791, 43.320321962508785 ], [ -8.288471132018323, 43.319997263443824 ], [ -8.288164292996585, 43.319517992076705 ], [ -8.287680042744245, 43.319142086310016 ], [ -8.286746980836524, 43.318366188257095 ], [ -8.286401469268135, 43.31784756112409 ], [ -8.286286842470078, 43.317407113277262 ], [ -8.286775608177019, 43.316802150199088 ], [ -8.287216458876603, 43.316144812246655 ], [ -8.287131215901447, 43.315746396564386 ], [ -8.286954725029711, 43.31542407338241 ], [ -8.286750953883706, 43.315064452476861 ], [ -8.286584650966979, 43.314869014407769 ], [ -8.286518527511856, 43.314793784854743 ] ] } }
+]
+}

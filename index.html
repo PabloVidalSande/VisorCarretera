@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VISOR CONCELLO 0.0.1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+
+    <script src="https://kit.fontawesome.com/2a67ec3225.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Cargar CAPAS ANTIGUAS en el mapa-->
+    <script type="text/javascript" src="Geojson/carretera.js"></script>
+    <script type="text/javascript" src="Geojson/pk.js"></script>
+    <script type="text/javascript" src="Geojson/expropiaciones.js"></script>
+    <script type="text/javascript" src="Geojson/TCA2018.js"></script>
+    <script type="text/javascript" src="Geojson/TCA2019.js"></script>
+    <script type="text/javascript" src="Geojson/Actuaciones.js"></script>
+    <script type="text/javascript" src="Geojson/Puntos.js"></script>
+    <script type="text/javascript" src="Geojson/vias.js"></script>
+    
+    <!-- Cargar CAPAS NUEVAS ACTUACION en el mapa-->
+    <script type="text/javascript" src="Geojson/actuacionesjs/AC-110.js"></script>
+    <script type="text/javascript" src="Geojson/actuacionesjs/AC-115.js"></script>
+    <script type="text/javascript" src="Geojson/actuacionesjs/AC-116.js"></script>
+    <script type="text/javascript" src="Geojson/actuacionesjs/AC-122.js"></script>
+    <script type="text/javascript" src="Geojson/actuacionesjs/AC-130.js"></script>
+    <script type="text/javascript" src="Geojson/actuacionesjs/AC-131.js"></script>
+    <script type="text/javascript" src="Geojson/actuacionesjs/AC-160.js"></script>
+    <script type="text/javascript" src="Geojson/actuacionesjs/AC-182.js"></script>
+    <script type="text/javascript" src="Geojson/actuacionesjs/AC-211.js"></script>
+    <script type="text/javascript" src="Geojson/actuacionesjs/AC-213.js"></script>
+    <script type="text/javascript" src="Geojson/actuacionesjs/AC-221.js"></script>
+    <script type="text/javascript" src="Geojson/actuacionesjs/AC-400.js"></script>
+    <script type="text/javascript" src="Geojson/actuacionesjs/AC-415.js"></script>
+    <script type="text/javascript" src="Geojson/actuacionesjs/AC-552.js"></script>
+    <script type="text/javascript" src="Geojson/actuacionesjs/AC-566.js"></script>
+
+    <!-- Cargar CAPAS NUEVAS EXPEDIENTES en el mapa-->
+    <script type="text/javascript" src="Geojson/expedientesjs/AC-110_1404.js"></script>
+    <script type="text/javascript" src="Geojson/expedientesjs/AC-110_2761.js"></script>
+    <script type="text/javascript" src="Geojson/expedientesjs/AC-131_2248.js"></script>
+    <script type="text/javascript" src="Geojson/expedientesjs/AC-133_1250.js"></script>
+    <script type="text/javascript" src="Geojson/expedientesjs/AC-160_1026.js"></script>
+    <script type="text/javascript" src="Geojson/expedientesjs/AC-182_1296.js"></script>
+    <script type="text/javascript" src="Geojson/expedientesjs/AC_415_1.js"></script>
+
+    <script type="text/javascript" src="Geojson/exp_muni/AC_415_1853_Coruna.js"></script>
+    <script type="text/javascript" src="Geojson/exp_muni/AC_415_1854_Coruna.js"></script>
+    <script type="text/javascript" src="Geojson/exp_muni/AC_552_1377_Coruna.js"></script>
+    <script type="text/javascript" src="Geojson/exp_muni/AC_552_1377_Arteixo.js"></script>
+    <script type="text/javascript" src="Geojson/exp_muni/AC_552_1405_Arteixo.js"></script>
+    <script type="text/javascript" src="Geojson/exp_muni/AC_552_1420_Arteixo.js"></script>
+    <script type="text/javascript" src="Geojson/exp_muni/Coruna.js"></script>
+    <script type="text/javascript" src="Geojson/exp_muni/Arteixo.js"></script>
+    <script type="text/javascript" src="Geojson/accidente.js"></script>
+    
+    <!-- Carga script mapa -->
+    <script src="scripts/mapa.js"></script>
+    <!-- Cargar estilos mapa -->
+    <script src="scripts/funciones_colores.js"></script>
+    <!-- API google -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9PsOvrDURdXJHcfZO1U2phxigXifxrYo&callback=initialize"></script>
+    <!-- Libreira HTML5 para el  gráfico-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+
+<body onload="splash()">
+    <!-- Splash bienvenida -->
+    <div id="splash">
+        <h1 id="bienvenido">BIENVENIDO</h1>
+    </div>
+
+    <!-- Desplegable lateral -->
+    <img src="img/capas.png" id="capas_ico" onclick="cambio_capa_base()">
+    <div id="menu1" onclick="layer_panel_open()"><i id="cloud" class="fas fa-layer-group fa-3x" title="Capas"></i></div>
+    <div id="menu2" onclick="search()"><i id="search" class="fas fa-search fa-2x" title="Buscador"></i></div>
+    <div id="menu3" onclick="power()"><i id="measure" class="fas fa-chart-bar fa-3x" title="Estadisticas"></i></div>
+    <div id="menu4" onclick="borrar()"><i id="x1" class="fas fa-trash-alt fa-3x" onclick="prueba()"></i></div>
+    <div id="menu5" onclick="activar_accidentes()"><i id="x2" class="fas fa-exclamation-triangle fa-3x"></i></div>
+    
+    <div id="map"></div>
+
+    <!-- POWER BI PANEL Externo-->
+    <div id="pw_panel"><img src="icon/close.png" id="pw_close_ico" onclick="power_close()">
+    <div id="iframe_content"><iframe width="100%" height="100%" src="https://app.powerbi.com/reportEmbed?reportId=bdc39d6a-0088-4ea3-b9fa-2ef373bf9b08&autoAuth=true&ctid=8975f33d-b4bc-4ef3-a26c-60d8dbd33491&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWV1cm9wZS1ub3J0aC1iLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9&pageName=ReportSectionc35644bda5870306e4b8" frameborder="0" allowFullScreen="true"></iframe></div>
+	</div>
+
+	<div id="pw_panel2"><img src="icon/close.png" id="pw_close_ico" onclick="power_close2()">
+    <div id="iframe_content"><iframe width="100%" height="100%" src="https://app.powerbi.com/reportEmbed?reportId=bdc39d6a-0088-4ea3-b9fa-2ef373bf9b08&autoAuth=true&ctid=8975f33d-b4bc-4ef3-a26c-60d8dbd33491&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWV1cm9wZS1ub3J0aC1iLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9&pageName=ReportSectionbedb8e8eaaac1c3fee07" frameborder="0" allowFullScreen="true"></iframe></div>
+	</div>
+
+	<div id="pw_panel3"><img src="icon/close.png" id="pw_close_ico" onclick="power_close3()">
+    <div id="iframe_content"><iframe width="100%" height="100%" src="https://app.powerbi.com/reportEmbed?reportId=bdc39d6a-0088-4ea3-b9fa-2ef373bf9b08&autoAuth=true&ctid=8975f33d-b4bc-4ef3-a26c-60d8dbd33491&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWV1cm9wZS1ub3J0aC1iLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9&pageName=ReportSectionc35644bda5870306e4b8" frameborder="0" allowFullScreen="true"></iframe></div>
+	</div>
+
+	<div id="pw_panel4"><img src="icon/close.png" id="pw_close_ico" onclick="power_close4()">
+    <div id="iframe_content"><iframe width="100%" height="100%" src="https://app.powerbi.com/reportEmbed?reportId=bdc39d6a-0088-4ea3-b9fa-2ef373bf9b08&autoAuth=true&ctid=8975f33d-b4bc-4ef3-a26c-60d8dbd33491&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWV1cm9wZS1ub3J0aC1iLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9&pageName=ReportSectiona6a657edce7c153178f4" frameborder="0" allowFullScreen="true"></iframe></div>
+	</div>
+
+
+
+    <!-- ················ -->
+    <!-- Panel de capas -->
+    <div id="layer_panel"><img src="icon/close.png" id="pw_close_ico" onclick="layer_panel_close()">
+    <p id="capa1_text">AC-568</p><div id="activar_capa_1" onclick="activar_capa1()"></div>
+    <p id="capa2_text">PKs</p><div id="activar_capa_2" onclick="activar_capa2()"></div>
+    <p id="capa3_text">Expropiaciones</p><div id="activar_capa_3" onclick="activar_capa3()"></div>
+    <p id="capa4_text">TCAs</p><div id="activar_capa_4" onclick="activar_capa4()"></div>
+    <p id="capa5_text">Actuaciones</p><div id="activar_capa_5" onclick="activar_capa5()"></div>
+    <p id="capa6_text">Puntos</p><div id="activar_capa_6" onclick="activar_capa6()"></div>
+    <p id="capa7_text">Vias</p><div id="activar_capa_7" onclick="activar_capa7()"></div>
+    </div>
+    </div>
+
+    <div id="leyenda_capas_panel">
+    	<img src="img/leyenda_actuaciones.png" id="leyenda_actuaciones">
+    </div>
+    <div id="leyenda_capas_panel2" onclick="close_leyenda()">
+    	<img src="img/leyenda_actuaciones2.png" id="leyenda_actuaciones">
+    </div>
+    <!-- ............... -->
+    <!-- Panel de busqueda -->
+    <div id="search_panel"><img src="icon/close.png" id="pw_close_ico" onclick="search_close()">
+        <div id="P_actuacion" onclick="activar_b_actuacion()">Actuación</div>
+		<div id="P_expediente" onclick="activar_b_expediente()">Expediente</div>
+		<div id="P_concello" onclick="activar_b_concello()">Concello</div>
+		<div id="P_estado" onclick="activar_b_estado()">Estado</div>
+
+        <!-- Cargar Capas Actuaciones -->
+		<div id="buscador_actuacion">
+			<input type="text" id="myInput" onkeyup="buscar_actuacion()" placeholder="Introduce actuacion...">
+				<ul id="myUL" style="position: absolute; overflow: auto; height: 80%;">
+					<li onclick="añadir_ac_415()"><a href="#">AC/19/025.01<img src="img/powerbi.jpg" id="power_logo" onclick="power2()"></a></li>
+ 					<li onclick="añadir_ac_552()"><a href="#">AC/19/072.01<img src="img/powerbi.jpg" id="power_logo" onclick="power3()"></a></li>
+  					<li onclick="añadir_ac_110()"><a href="#">AC/19/015.01<img src="img/powerbi.jpg" id="power_logo" onclick="power4()"></a></li>
+  					<li onclick="añadir_ac_115()"><a href="#">AC/19/045.01<img src="img/powerbi2.jpg" id="power_logo"></a></li>
+  					<li onclick="añadir_ac_116()"><a href="#">AC/19/013.01<img src="img/powerbi2.jpg" id="power_logo"></a></li>
+  					<li onclick="añadir_ac_122()"><a href="#">AC/19/012.01<img src="img/powerbi2.jpg" id="power_logo"></a></li>
+					<li onclick="añadir_ac_130()"><a href="#">AC/19/018.01<img src="img/powerbi2.jpg" id="power_logo"></a></li>
+  					<li onclick="añadir_ac_131()"><a href="#">AC/19/043.01<img src="img/powerbi2.jpg" id="power_logo"></a></li>
+ 					<li onclick="añadir_ac_160()"><a href="#">AC/19/034.01<img src="img/powerbi2.jpg" id="power_logo"></a></li>
+ 					<li onclick="añadir_ac_213()"><a href="#">AC/19/027.01<img src="img/powerbi2.jpg" id="power_logo"></a></li>
+ 					<li onclick="añadir_ac_221()"><a href="#">AC/19/017.01<img src="img/powerbi2.jpg" id="power_logo"></a></li>
+ 					<li onclick="añadir_ac_400()"><a href="#">AC/19/033.01<img src="img/powerbi2.jpg" id="power_logo"></a></li>
+ 					<li onclick="añadir_ac_566()"><a href="#">AC/19/019.01<img src="img/powerbi2.jpg" id="power_logo"></a></li>
+				</ul>
+		</div>
+
+        <!-- Cargar Capas Expedientes -->
+		<div id="buscador_expediente" >
+			<input type="text" id="myInput2" onkeyup="buscar_expediente()" placeholder="Introduce código de expediente...">
+				<ul id="myUL2" style="position: absolute; overflow: auto; width: 100%;height: 80%;">
+					<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Obra AC-415.</a></li>
+					<li onclick="añadir_1377()"><a href="#">AC/19/072.01 Obra Avda. Fisterra.</a></li>
+    				<li onclick="añadir_1405()"><a href="#">AC/19/072.02 Obra2 Avda. Fisterra.</a></li>
+					<li onclick="añadir_1404()"><a href="#">AC/19/015.01 Obra As Somozas.</a></li>
+					<li onclick="añadir_1853()"><a href="#">AC/19/025.01.M1 Modificado AC-415.</a></li>
+  					<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Mejora seguridad vial.</a></li>
+		  			<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Control señalización.</a></li>
+		  			<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Canalizaciones.</a></li>
+		  			<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Regeneracion del pavimento.</a></li>
+		  			<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Dotación de servicios básicos.</a></li>
+					<li onclick="añadir_1377()"><a href="#">AC/19/072.01.C1 Complementario Avda. Fisterra.</a></li>
+  					<li onclick="añadir_1377()"><a href="#">AC/19/072.01 Mantenimiento del firme Avda. Fisterra.</a></li>
+		  			<li onclick="añadir_1377()"><a href="#">AC/19/072.01 Control señalización Avda. Fisterra.</a></li>
+		  			<li onclick="añadir_1405()"><a href="#">AC/19/072.02 Retirada de piedras Avda. Fisterra.</a></li>
+		  			<li onclick="añadir_1377()"><a href="#">AC/19/072.01 Renovación de servicios Avda. Fisterra.</a></li>
+		  			<li onclick="añadir_1377()"><a href="#">AC/19/072.01 Mejora de carretera Avda. Fisterra.</a></li>
+					<li onclick="añadir_1404()()"><a href="#">AC/19/015.01.C1 Complementario As Somozas.</a></li>
+		  			<li onclick="añadir_1404()()"><a href="#">AC/19/015.01 Mejora de firme As Somozas.</a></li>
+		  			<li onclick="añadir_1404()()"><a href="#">AC/19/015.01 Mejora seguridad vial As Somozas.</a></li>
+		  			<li onclick="añadir_1404()()"><a href="#">AC/19/015.01 Acondicionamiento carretera, As Somozas.</a></li>
+		  			<li onclick="añadir_1404()()"><a href="#">AC/19/015.01 Regeneración del pavimento, As Somozas.</a></li>
+		  			<li onclick="añadir_1404()()"><a href="#">AC/19/015.01 Renovación de servicios, As Somozas.</a></li>
+  					<!-- <li onclick="añadir_1404()"><a href="#">AC/19/015.01 Mejora de firme As Somozas.</a></li>
+  					<li onclick="añadir_2761()"><a href="#">AC/19/015.01 Conexión desvio As Felgosas.</a></li>
+  					<li onclick="añadir_1854()"><a href="#">AC/19/025.01 Mejora de la seguridad.</a></li>
+  					<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Gestión y control ambiental.</a></li>
+					<li onclick="añadir_1377()"><a href="#">AC/19/072.01 Mantenimiento del firme Avda. Fisterra.</a></li>
+  					<li onclick="añadir_1377_2()"><a href="#">AC/19/072.01 Mantenimiento del firme Avda. Fisterra.</a></li>
+  					<li onclick="añadir_1405()"><a href="#">AC/19/072.01 Control señalización Avda. Fisterra.</a></li> -->
+				</ul>
+		</div>
+
+
+        <!-- Cargar Capas por estado de la carretera -->
+		<div id="buscador_estado" >
+			<select name="estado" id="estado_select" >
+			<option>Estudios Previos</option>
+			<option>Inicial</option>
+			<option>Obra</option>
+			<option>En servicio</option>
+			<option>Liquidada</option>
+		    </select><button style="height: 5%" onclick="filtrar_estado()">Buscar</button>
+		    <div id="sin_filtrar"><ul id="myUL2">
+  					<li onclick="añadir_1404()"><a href="#">AC/19/015.01 Mejora de firme As Somozas.</a></li>
+  					<li onclick="añadir_2761()"><a href="#">AC/19/015.01 Conexión desvio As Felgosas.</a></li>
+  					<li onclick="añadir_1854()"><a href="#">AC/19/025.01 Mejora de la seguridad.</a></li>
+  					<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Gestión y control ambiental.</a></li>
+					<li onclick="añadir_1377()"><a href="#">AC/19/072.01 Mantenimiento del firme Avda. Fisterra.</a></li>
+  					<li onclick="añadir_1377_2()"><a href="#">AC/19/072.01 Mantenimiento del firme Avda. Fisterra.</a></li>
+  					<li onclick="añadir_1405()"><a href="#">AC/19/072.01 Control señalización Avda. Fisterra.</a></li>	
+			</ul></div>
+			<div id="filtrado_estudios"><ul id="myUL2">
+  					<li onclick="añadir_1854()"><a href="#">AC/19/025.01 Mejora de la seguridad.</a></li>
+  					<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Gestión y control ambiental.</a></li>
+			</ul></div>
+			<div id="filtrado_inicial"><ul id="myUL2">
+  					<li onclick="añadir_1377()"><a href="#">AC/19/072.01 Mantenimiento del firme Avda. Fisterra.</a></li>
+  					<li onclick="añadir_1377_2()"><a href="#">AC/19/072.01 Mantenimiento del firme Avda. Fisterra.</a></li>
+			</ul></div>
+			<div id="filtrado_obra"><ul id="myUL2">
+  					<li onclick="añadir_1404()"><a href="#">AC/19/015.01 Mejora de firme As Somozas.</a></li>
+			</ul></div>
+			<div id="filtrado_servicio"><ul id="myUL2">
+  					<li onclick="añadir_2761()"><a href="#">AC/19/015.01 Conexión desvio As Felgosas.</a></li>
+			</ul></div>
+			<div id="filtrado_liquidada"><ul id="myUL2">
+  					<li onclick="añadir_1405()"><a href="#">AC/19/072.01 Control señalización Avda. Fisterra.</a></li>	
+			</ul></div>	
+		</div>
+    </div>
+
+    <!-- PESTAÑA DE EXPEDIENTES PARA CADA ACTUACION  -->
+    <div id="exp_actuacion2">
+    	<img src="icon/close.png" id="pw_close_ico" onclick="exp_act_close2()">
+    	<h2 style="text-align: center;">Expedientes</h2>
+    	<ul id="myUL2">
+  			<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Obra AC-415.</a></li>
+  			<li onclick="añadir_1853()"><a href="#">AC/19/025.01.M1 Modificado AC-415.</a></li>
+  			<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Mejora seguridad vial.</a></li>
+  			<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Control señalización.</a></li>
+  			<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Canalizaciones.</a></li>
+  			<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Regeneracion del pavimento.</a></li>
+  			<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Dotación de servicios básicos.</a></li>
+
+		</ul>
+    </div>
+    <div id="exp_actuacion3">
+    	<img src="icon/close.png" id="pw_close_ico" onclick="exp_act_close3()">
+    	<h2 style="text-align: center;">Expedientes</h2>
+    	<ul id="myUL2">
+    		<li onclick="añadir_1377()"><a href="#">AC/19/072.01 Obra Avda. Fisterra.</a></li>
+    		<li onclick="añadir_1405()"><a href="#">AC/19/072.02 Obra2 Avda. Fisterra.</a></li>
+    		<li onclick="añadir_1377()"><a href="#">AC/19/072.01.C1 Complementario Avda. Fisterra.</a></li>
+  			<li onclick="añadir_1377()"><a href="#">AC/19/072.01 Mantenimiento del firme Avda. Fisterra.</a></li>
+  			<li onclick="añadir_1377()"><a href="#">AC/19/072.01 Control señalización Avda. Fisterra.</a></li>
+  			<li onclick="añadir_1405()"><a href="#">AC/19/072.02 Retirada de piedras Avda. Fisterra.</a></li>
+  			<li onclick="añadir_1377()"><a href="#">AC/19/072.01 Renovación de servicios Avda. Fisterra.</a></li>
+  			<li onclick="añadir_1377()"><a href="#">AC/19/072.01 Mejora de carretera Avda. Fisterra.</a></li>
+		</ul>
+    </div>
+    <div id="exp_actuacion">
+    	<img src="icon/close.png" id="pw_close_ico" onclick="exp_act_close()">
+    	<h2 style="text-align: center;">Expedientes</h2>
+    	<ul id="myUL2">
+  			<li onclick="añadir_1404()"><a href="#">AC/19/015.01 Obra As Somozas.</a></li>
+  			<li onclick="añadir_1404()()"><a href="#">AC/19/015.01.C1 Complementario As Somozas.</a></li>
+  			<li onclick="añadir_1404()()"><a href="#">AC/19/015.01 Mejora de firme As Somozas.</a></li>
+  			<li onclick="añadir_1404()()"><a href="#">AC/19/015.01 Mejora seguridad vial As Somozas.</a></li>
+  			<li onclick="añadir_1404()()"><a href="#">AC/19/015.01 Acondicionamiento carretera, As Somozas.</a></li>
+  			<li onclick="añadir_1404()()"><a href="#">AC/19/015.01 Regeneración del pavimento, As Somozas.</a></li>
+  			<li onclick="añadir_1404()()"><a href="#">AC/19/015.01 Renovación de servicios, As Somozas.</a></li>
+		</ul>
+    </div>
+
+    <div id="exp_corunha">
+    	<img src="icon/close.png" id="pw_close_ico" onclick="exp_corunha_close()">
+    	<h2 style="text-align: center;">Expedientes</h2>
+    	<ul id="myUL2">
+    		<li onclick="añadir_1854()"><a href="#">AC/19/025.01 Mejora de la seguridad.</a></li>
+  			<li onclick="añadir_1853()"><a href="#">AC/19/025.01 Gestión y control ambiental.</a></li>
+    		<li onclick="añadir_1377()"><a href="#">AC/19/072.01 Mantenimiento del firme Avda. Fisterra.</a></li>
+		</ul>
+    </div>
+
+    <div id="exp_arteixo">
+    	<img src="icon/close.png" id="pw_close_ico" onclick="exp_arteixo_close()">
+    	<h2 style="text-align: center;">Expedientes</h2>
+    	<ul id="myUL2">
+    		<li onclick="añadir_1377_2()"><a href="#">AC/19/072.01 Mantenimiento del firme Avda. Fisterra.</a></li>
+  			<li onclick="añadir_1405()"><a href="#">AC/19/072.01 Control señalización Avda. Fisterra.</a></li>
+		</ul>
+    </div>
+
+    <!--.................-->
+    <!-- STREET VIEW -->
+    <div id="pano"><img src="icon/close.png" id="pw_close_ico2" onclick="street_close()"></div>
+    <style type="text/css">
+        html body {height: 100%; width: 100%; overflow: hidden;}
+    </style>
+
+<script type="text/javascript">
+    // -- Creación y asignación de las variables -- //
+
+	// -- Creación del mapa principal -- //
+    var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{ maxZoom: 19})
+    var Thunderforest_Transport = L.tileLayer('https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey={apikey}',{
+	apikey: '28838681c2284942ae5d9415c2e95d48',
+	maxZoom: 22});
+	var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']});
+	// --Asignación del zoom y ubicación principal-- //
+    var map = new L.Map('map');
+    map.setView(new  L.LatLng(43.560776136002865, -8.06919990201464), 12);
+    map.addLayer(osmLayer);
+    
+   
+    // ------ ESTILOS CAPAS ------ //
+    // -- Las funciones de las colores se importan de funciones.js -- //
+
+    // -- Estilo de los puntos PK -- //
+    var marcador_pk = {
+    radius: 1,
+    fillColor: "Black",
+    color: "#000",
+    weight: 5,
+    opacity: 1,
+    fillOpacity: 0.8
+    }; 
+    
+    // ------ ICONOS ------ //
+    var peaje_ico = L.icon({
+    iconUrl: 'leaf-green.png',
+    iconSize:     [38, 95], // Tamaño del icono
+    iconAnchor:   [22, 94]});
+
+    var greenIcon = L.icon({
+    iconUrl: 'img/alerta.png',
+    iconSize:     [50, 50], // Tamaño del icono
+    iconAnchor:   [50, 50], // Ubicación del marcador
+    });
+
+    // ---------- CARGAR CAPAS ---------- //
+    // -- Asignación de CAPAS ANTIGUAS -- //
+    var carretera = L.geoJSON(carretera, {style: mystyle_pre})
+    var TCA2018 = L.geoJSON(TCA2018, {style: estilo_tca_18})
+    var TCA2019 = L.geoJSON(TCA2019, {style: estilo_tca_19})
+    var expropiaciones = L.geoJSON(expropiaciones, {onEachFeature: feature_expropiaciones ,style: estilo_expropiaciones})
+    var pk = L.geoJSON(pk, {onEachFeature: street_all,pointToLayer: function (feature, latlng) {return L.circleMarker(latlng, marcador_pk);}})
+    var actuaciones = L.geoJSON(Actuaciones, {style: estilo_actuaciones})
+    var vias = L.geoJSON(vias, {style: estilo_vias})
+	var puntos = L.geoJSON(Puntos)
+	
+	// -- Asignación de CAPAS NUEVAS -- //
+    var AC_110 = L.geoJSON(AC_110, {style: mystyle_pre})
+    var AC_115 = L.geoJSON(AC_115, {style: mystyle_pre})
+    var AC_116 = L.geoJSON(AC_116, {style: mystyle_pre})
+    var AC_122 = L.geoJSON(AC_122, {style: mystyle_pre})
+    var AC_130 = L.geoJSON(AC_130, {style: mystyle_pre})
+    var AC_131 = L.geoJSON(AC_131, {style: mystyle_pre})
+    var AC_160 = L.geoJSON(AC_160, {style: mystyle_pre})
+    var AC_182=  L.geoJSON(AC_182, {style: mystyle_pre})
+    var AC_211=  L.geoJSON(AC_211, {style: mystyle_pre})
+    var AC_213=  L.geoJSON(AC_213, {style: mystyle_pre})
+    var AC_221=  L.geoJSON(AC_221, {style: mystyle_pre})
+    var AC_400=  L.geoJSON(AC_400, {style: mystyle_pre})
+    var AC_415=  L.geoJSON(AC_415, {style: mystyle_pre})
+    var AC_552=  L.geoJSON(AC_552, {style: mystyle_pre})
+    var AC_566=  L.geoJSON(AC_566, {style: mystyle_pre})
+
+    var AC_110_1404 = L.geoJSON(AC_110_1404, {style: estilo_exp_amarillo})
+    var AC_110_2761 = L.geoJSON(AC_110_2761, {style: estilo_exp_verde})
+    var AC_131_2248 = L.geoJSON(AC_131_2248, {style: estilo_exp})
+    var AC_133_1250 = L.geoJSON(AC_133_1250, {style: estilo_exp})
+    var AC_160_1026 = L.geoJSON(AC_160_1026, {style: estilo_exp})
+    var AC_182_1296 = L.geoJSON(AC_182_1296, {style: estilo_exp})
+    var AC_415_1 = L.geoJSON(AC_415_1, {style: estilo_exp})
+
+    var AC_415_1853_Coruna = L.geoJSON(AC_415_1853_Coruna,{onEachFeature: mostrar_expediente_info, style: estilo_exp_azul})
+    var AC_415_1854_Coruna = L.geoJSON(AC_415_1854_Coruna,{onEachFeature: mostrar_expediente_info, style: estilo_exp_azul})
+    var AC_552_1377_Coruna = L.geoJSON(AC_552_1377_Coruna,{onEachFeature: mostrar_expediente_info, style: estilo_exp_pink})
+
+    var AC_552_1377_Arteixo = L.geoJSON(AC_552_1377_Arteixo,{style: estilo_coruna_green})
+    var AC_552_1405_Arteixo = L.geoJSON(AC_552_1405_Arteixo,{style: estilo_exp_morado})
+    var AC_552_1420_Arteixo = L.geoJSON(AC_552_1420_Arteixo,{style: estilo_coruna_orange})
+
+    var Arteixo = L.geoJSON(Arteixo,{style: limite_concello})
+    var Coruna = L.geoJSON(Coruna,{style: limite_concello})
+
+    // -- Accidentes marcados con exclamacion -- //
+    var accidente = L.marker([43.283072 , -8.520569], {icon: greenIcon})
+    var accidente2 = L.marker([43.252537 , -8.433818], {icon: greenIcon})
+    var accidente3 = L.marker([43.322227 , -8.410571], {icon: greenIcon})
+	var accidente4 = L.marker([43.314611 , -8.606776], {icon: greenIcon})
+
+    // -- PK -- //
+    function buscar_tramo(feature) {     
+       var pk_inicio= document.getElementById('input_tramo_inicio').value
+       var pk_fin= document.getElementById('input_tramo_inicio').value
+
+       if (pk_inicio != null && pk_fin == null) {carretera.setStyle(mystyle)
+       map.fitBounds(carretera.getBounds())}
+       if (pk_inicio != null && pk_fin != null) {carretera.setStyle(mystyle)
+       map.fitBounds(carretera.getBounds())}
+    }
+
+     
+
+// -- Abrir panel de TCA al clicar en ellos -- //
+function mostrar_actuacion_info(feature, layer){
+	
+	layer.on("click", function(e){alert(e.target.feature.properties.PK_INICIO)})
+
+	var actuacion = e.target.feature.properties.id
+	if (actuacion == 1) {}
+}
+
+TCA2018.on("click", function (e) {
+					document.getElementById("tca_panel").style.width = "26%"
+					document.getElementById("tca_panel").style.right = "70.2%"
+					document.getElementById("tca_panel").style.border = "3px solid #153F7C"
+					document.getElementById("tca_panel").style.display = "initial"
+					})
+
+TCA2019.on("click", function (e) {
+					document.getElementById("tca_panel").style.width = "26%"
+					document.getElementById("tca_panel").style.right = "70.2%"
+					document.getElementById("tca_panel").style.border = "3px solid #153F7C"
+					document.getElementById("tca_panel").style.display = "initial"
+					})
+
+// -- Añadir las capas previamente asignadas al mapa en función de las funciones -- //
+function añadir_ac_110(){AC_110.addTo(map) 
+						 map.fitBounds(AC_110.getBounds())
+						 document.getElementById("exp_actuacion").style.border = "3px solid #153F7C"
+						 document.getElementById("exp_actuacion").style.width = "20%"
+						 document.getElementById("exp_actuacion").style.right = "40%"}
+
+function añadir_ac_115(){AC_115.addTo(map) 
+						 map.fitBounds(AC_115.getBounds())}
+
+function añadir_1377(){AC_552_1377_Coruna.addTo(map)   
+					   map.fitBounds(AC_552_1377_Coruna.getBounds())
+					   document.getElementById("leyenda_capas_panel2").style.border = "3px solid #153F7C"
+					   document.getElementById("leyenda_capas_panel2").style.width = "10%"}
+function añadir_1377_2(){AC_552_1377_Arteixo.addTo(map)   
+					   map.fitBounds(AC_552_1377_Arteixo.getBounds())
+					   document.getElementById("leyenda_capas_panel2").style.border = "3px solid #153F7C"
+					   document.getElementById("leyenda_capas_panel2").style.width = "10%"}
+
+function añadir_1405(){AC_552_1405_Arteixo.addTo(map)  
+					   map.fitBounds(AC_552_1405_Arteixo.getBounds())
+					   document.getElementById("leyenda_capas_panel2").style.border = "3px solid #153F7C"
+					   document.getElementById("leyenda_capas_panel2").style.width = "10%"}
+
+
+function añadir_1854(){AC_415_1854_Coruna.addTo(map)   
+					   map.fitBounds(AC_415_1854_Coruna.getBounds())
+					   document.getElementById("leyenda_capas_panel2").style.border = "3px solid #153F7C"
+					   document.getElementById("leyenda_capas_panel2").style.width = "10%"}
+function añadir_1853(){AC_415_1853_Coruna.addTo(map)   
+					   map.fitBounds(AC_415_1853_Coruna.getBounds())
+					   document.getElementById("leyenda_capas_panel2").style.border = "3px solid #153F7C"
+					   document.getElementById("leyenda_capas_panel2").style.width = "10%"}
+
+function añadir_ac_116(){AC_116.addTo(map) 
+						 map.fitBounds(AC_116.getBounds())}
+function añadir_ac_122(){AC_122.addTo(map) 
+						 map.fitBounds(AC_122.getBounds())}	
+function añadir_ac_130(){AC_130.addTo(map) 
+						 map.fitBounds(AC_130.getBounds())}	
+function añadir_ac_131(){AC_131.addTo(map) 
+						 map.fitBounds(AC_131.getBounds())}	
+function añadir_ac_160(){AC_160.addTo(map) 
+						 map.fitBounds(AC_160.getBounds())}	
+function añadir_ac_182(){AC_182.addTo(map) 
+						 map.fitBounds(AC_182.getBounds())}	
+function añadir_ac_211(){AC_211.addTo(map) 
+						 map.fitBounds(AC_211.getBounds())}							
+function añadir_ac_213(){AC_213.addTo(map) 
+						 map.fitBounds(AC_213.getBounds())}		
+function añadir_ac_221(){AC_221.addTo(map) 
+						 map.fitBounds(AC_221.getBounds())}
+function añadir_ac_400(){AC_400.addTo(map) 
+						 map.fitBounds(AC_400.getBounds())}
+function añadir_ac_566(){AC_566.addTo(map) 
+						 map.fitBounds(AC_566.getBounds())}
+
+function añadir_1404(){AC_110_1404.addTo(map) 
+						 map.fitBounds(AC_110_1404.getBounds())
+						document.getElementById("leyenda_capas_panel2").style.border = "3px solid #153F7C"
+					   document.getElementById("leyenda_capas_panel2").style.width = "10%"}
+
+function añadir_2761(){AC_110_2761.addTo(map) 
+						 map.fitBounds(AC_110_2761.getBounds())
+						document.getElementById("leyenda_capas_panel2").style.border = "3px solid #153F7C"
+					   document.getElementById("leyenda_capas_panel2").style.width = "10%"}						 
+function añadir_2248(){AC_131_2248.addTo(map) 
+						 map.fitBounds(AC_131_2248.getBounds())}
+function añadir_1250(){AC_133_1250.addTo(map) 
+						 map.fitBounds(AC_133_1250.getBounds())}
+function añadir_1026(){AC_160_1026.addTo(map) 
+						 map.fitBounds(AC_160_1026.getBounds())}					
+function añadir_1296(){AC_182_1296.addTo(map) 
+						 map.fitBounds(AC_182_1296.getBounds())}
+
+
+function añadir_ac_415(){AC_415.addTo(map) 
+						 map.fitBounds(AC_415.getBounds())
+						 document.getElementById("exp_actuacion2").style.border = "3px solid #153F7C"
+						 document.getElementById("exp_actuacion2").style.width = "20%"
+						 document.getElementById("exp_actuacion2").style.right = "40%"}
+
+function añadir_ac_552(){AC_552.addTo(map) 
+						 map.fitBounds(AC_552.getBounds())
+						 document.getElementById("exp_actuacion3").style.border = "3px solid #153F7C"
+						 document.getElementById("exp_actuacion3").style.width = "20%"
+						 document.getElementById("exp_actuacion3").style.right = "40%"}
+
+				 
+function añadir_corunha(){Coruna.addTo(map)  
+						map.fitBounds(Coruna.getBounds())
+						map.setZoom(14)
+						document.getElementById("exp_corunha").style.border = "3px solid #153F7C"
+						document.getElementById("exp_corunha").style.width = "20%"
+						document.getElementById("exp_corunha").style.right = "40%"
+						}
+
+function añadir_arteixo(){Arteixo.addTo(map) 
+						 map.fitBounds(Arteixo.getBounds())
+						 map.setZoom(14)
+						 document.getElementById("exp_arteixo").style.border = "3px solid #153F7C"
+						 document.getElementById("exp_arteixo").style.width = "20%"
+						 document.getElementById("exp_arteixo").style.right = "40%"
+						 }
+
+function close_leyenda(){document.getElementById("leyenda_capas_panel2").style.border = "0px solid #153F7C"
+						 document.getElementById("leyenda_capas_panel2").style.width = "0%"}
+
+function borrar(){map.eachLayer(function (layer) {
+    map.removeLayer(layer);
+    
+    
+}); map.addLayer(Thunderforest_Transport)}
+
+
+function mostrar_expediente_info(feature, layer){
+	
+	// layer.on("click", function(e){alert(e.target.feature.properties.ID)}) 
+}
+	
+
+// -- Cambiar capa que se muestra en el mapa -- //
+var capa_base_activa = false;
+function cambio_capa_base(){
+	if (capa_base_activa == false) {map.addLayer(googleSat)}
+	else {map.removeLayer(googleSat)}
+	capa_base_activa = !capa_base_activa
+	}
+
+
+function street_all(feature, layer){
+	var coords_st
+	var lat_p 
+	var long_p
+	layer.on("click", function(e){coords_st = e.target.feature.geometry.coordinates 
+		lat_p = coords_st[1]
+		long_p = coords_st[0]
+		panorama_test(lat_p, long_p)
+		document.getElementById("pano").style.width = "41%"
+		document.getElementById("pano").style.border = "3px solid #153F7C"}
+		) 
+	
+}
+
+function panorama_test(lat_p, long_p) {
+        var localizacion = {lat: lat_p , lng: long_p};
+		var panorama = new google.maps.StreetViewPanorama(
+        document.getElementById('pano'), {
+        position: localizacion,
+        pov: {
+        heading: 34,
+        pitch: 10}
+            });}
+
+
+</script>
+</body>
+</html>

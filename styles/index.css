@@ -1,0 +1,511 @@
+/* Estilos menús desplegables de la izquierda */
+#menu1{position: absolute;
+	  left: 0%;
+	  top: 0%;
+	  width: 0.9%;
+	  height: 19%;
+	  background-color: #153F7C;
+	transition-delay: 0.8s;
+	transition: 1s;}
+#menu2{position: absolute;
+	  top: 19%;
+	  left: 0%;
+	  width: 0.9%;
+	  height: 20%;
+	  background-color: #153F7C;
+	  transition-delay: 0.8s;
+	  transition: 1s;}
+#menu3{position: absolute;
+	  top: 39%;
+	  left: 0%;
+	  width: 0.9%;
+	  height: 20%;
+	  background-color: #153F7C;
+	transition-delay: 0.8s;
+	transition: 1s;}
+#menu4{position: absolute;
+	  top: 59%;
+	  left: 0%;
+	  width: 0.9%;
+	  height: 20%;
+	  background-color: #153F7C;
+	transition-delay: 0.8s;
+	transition: 1s;}
+#menu5{position: absolute;
+	  top: 79%;
+	  left: 0%;
+	  width: 0.9%;
+	  height: 23%;
+	  background-color: #153F7C;
+	transition-delay: 0.8s;
+	transition: 01s;}
+
+#menu1:hover {background-color: #4c9ae7;
+					width: 15%;
+					transition: 1.3s}
+#menu2:hover{background-color: #4c9ae7;
+					width: 15%;
+					transition: 1.0s}
+#menu3:hover {background-color: #4c9ae7;
+					width: 15%;
+					transition: 0.7s}
+#menu4:hover {background-color: #4c9ae7;
+					width: 15%;
+					transition: 0.7s}
+#menu5:hover{background-color: #4c9ae7;
+					width: 15%;
+					transition: 0.7s}
+/* ------------------------------------------------ */
+
+/* Estilo Iconos del desplegable */
+#cloud{position: absolute; font-size: 300%;
+		top: 30%; left: 50%; color: transparent; 
+		transition: 1s;
+		}
+
+#search{position: absolute; font-size: 300%;
+		top: 30%; left: 50%; color: transparent; 
+		transition: 1s;
+		}
+
+#measure{position: absolute; font-size: 300%;
+		top: 30%; left: 50%; color: transparent; 
+		transition: 1s;
+		}
+#x1{position: absolute; font-size: 300%;
+		top: 30%; left: 50%; color: transparent; 
+		transition: 1s;
+		}
+#x2{position: absolute; font-size: 300%;
+		top: 30%; left: 50%; color: transparent; 
+		transition: 1s;
+		}
+
+#menu1:hover #cloud{position: absolute; font-size: 300%;
+		top: 35%; left: 50%; color: black; transition: 1s; height: 100%; width: 100%; transition-delay: 0.2s; z-index: 3}
+#menu2:hover #search{position: absolute; font-size: 300%;
+		top: 35%; left: 50%; color: black; transition: 1s; height: 100%; width: 100%; transition-delay: 0.2s; z-index: 3}
+
+#menu3:hover #measure{position: absolute; font-size: 300%;
+		top: 35%; left: 50%; color: black; transition: 1s; height: 100%; width: 100%; transition-delay: 0.2s; z-index: 3}
+#menu4:hover #x1{position: absolute; font-size: 300%;
+		top: 35%; left: 50%; color: black; transition: 1s; height: 100%; width: 100%; transition-delay: 0.1s; z-index: 3}
+#menu5:hover #x2{position: absolute; font-size: 300%;
+		top: 35%; left: 50%; color: black; transition: 0.01s; height: 100%; width: 100%; transition-delay: 0.01s; z-index: 3}
+/* ------------------------------------------------ */
+
+/* Color al finalizar la transicion */
+#menu1:active {background-color: #00bfff; transition: 0.01s}
+#menu2:active {background-color: #00bfff; transition: 0.01s}
+#menu3:active {background-color: #00bfff; transition: 0.01s}
+#menu4:active {background-color: #00bfff; transition: 0.01s}
+#menu5:active {background-color: #00bfff; transition: 0.01s}
+/* ------------------------------------------------ */
+
+#map{position: absolute; top: 0%; left: 0.9%; height: 100%; width: 99%; z-index: -10}
+
+#control{
+	  display: none;
+	  font-family: Arial;
+	  color: white;
+      position: absolute;
+      z-index: 2;
+      left: 600px; 
+      top: 10px;
+      background-color: #153F7C;
+      padding: 10px;
+  	  }
+
+/* Splash */
+#splash{top: 0%; left: 0% ;height: 100%; width: 100%; position: absolute; background-color: #153F7C; transition: 0.5s; transition-delay: 0.5s; z-index: 6}
+/* ------------------------------------------------ */
+
+/* Mensaje Bienvenida */
+#bienvenido {
+    margin-top: 23%;
+    font-size: 600%;
+    font-family: Arial;
+    color: white;
+    text-align: center;
+    -webkit-animation: fadein 2s;}
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }}
+/* ------------------------------------------------ */
+
+
+/*#boton_incidencia{background-color: #153F7C; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; 
+	padding-right: 20px; 
+text-align: center; 
+border-radius: 15px;
+border: 3px;
+border-color: black;
+color: white; 
+font-family: arial black;
+font-size: 20px}
+#boton_incidencia:active {background-color: #00bfff; transition: 0.01s}
+#boton_incidencia:hover{cursor: pointer;}*/
+
+/* Icono cerrar PowerBI  */ 
+#pw_close_ico{position: absolute; top: 2%; left: 3%; height: 4%; width: 3%;}
+#pw_close_ico2{position: absolute; top: 2%; right: 25%; height: 4%; width: 3%; z-index: 10}
+/* Panel PowerBI */
+#pw_panel{position: absolute; right: 0%; top: 0.3%; height: 99%; width: 0%; background-color: white;transition: 1s; opacity: 98%;}
+#pw_panel2{position: absolute; right: 0%; top: 0.3%; height: 99%; width: 0%; background-color: white;transition: 1s; opacity: 98%;}
+#pw_panel3{position: absolute; right: 0%; top: 0.3%; height: 99%; width: 0%; background-color: white;transition: 1s; opacity: 98%;}
+#pw_panel4{position: absolute; right: 0%; top: 0.3%; height: 99%; width: 0%; background-color: white;transition: 1s; opacity: 98%;}
+#pestañas_bi{position: absolute; width: 90%; height: 5%; left: 8%; top: 0.5%}
+/* ------------------------------------------------ */
+
+/* Paneles que se abren desde la derecha */
+#layer_panel{position: absolute; top: 0.3%; right: 0%; top: 0.3%; height: 50%; width: 0%; background-color: white; transition: 1s;}
+#search_panel{position: absolute; right: 0%; top: 0.3%; height: 97%; width: 0%; background-color: white; transition: 1s;}
+#buscador_carretera{position: absolute; left: 1%; top: 8%; height: 25%; width: 97%; background-color: white; z-index: 1; display: none}
+
+/*#text_busqueda_carretera{position: absolute; left: 20%; top: 20%; font-weight: 20%;}*/
+/*#input_carretera{position: absolute; left: 38%; top: 36%;}*/
+
+/* PRUEBAS NUEVAS SECCIONES
+#buscador_incidencia{position: absolute; left: 1%; top: 35%; height: 25%; width: 97%; background-color: white; z-index: 1; display: none;}
+#text_busqueda_incidencia{position: absolute; left: 20%; top: 20%; font-weight: 20%;}
+#input_incidencia{position: absolute; left: 43%; top: 36%;}
+
+#buscador_tramo{position: absolute; left: 1%; top: 63%; height: 25%; width: 97%; background-color: white; z-index: 1; display: none;}
+#text_busqueda_tramo_inicio{position: absolute; left: 10%; top: 20%; font-weight: 20%;}
+#input_tramo_inicio{position: absolute; left: 43%; top: 36%;}
+#text_busqueda_tramo_fin{position: absolute; left: 10%; top: 50%; font-weight: 20%;}
+#input_tramo_fin{position: absolute; left: 43%; top: 66%;} */
+/* ------------------------------------------------ */
+
+
+/*#buscar{position: absolute; top: 50%; left: 70%;}*/
+
+/* Situación del desplegable principal de la primera selección de la izquierda */
+#activar_capa_1{position: absolute; left: 70%; top: 15%; height: 5%; width: 7%; border-radius: 50%; background-color: #AEAEB2; transition: 0.3s; border: 1px solid black}
+#activar_capa_1:hover{cursor: pointer;}
+
+#activar_capa_2{position: absolute; left: 70%; top: 25%; height: 5%; width: 7%; border-radius: 50%; background-color: #AEAEB2; transition: 0.3s; border: 1px solid black}
+#activar_capa_2:hover{cursor: pointer;}
+
+#activar_capa_3{position: absolute; left: 70%; top: 35%; height: 5%; width: 7%; border-radius: 50%; background-color: #AEAEB2; transition: 0.3s; border: 1px solid black}
+#activar_capa_3:hover{cursor: pointer;}
+
+#activar_capa_4{position: absolute; left: 70%; top: 45%; height: 5%; width: 7%; border-radius: 50%; background-color: #AEAEB2; transition: 0.3s; border: 1px solid black}
+#activar_capa_4:hover{cursor: pointer;}
+
+#activar_capa_5{position: absolute; left: 70%; top: 55%; height: 5%; width: 7%; border-radius: 50%; background-color: #AEAEB2; transition: 0.3s; border: 1px solid black}
+#activar_capa_5:hover{cursor: pointer;}
+
+#activar_capa_6{position: absolute; left: 70%; top: 65%; height: 5%; width: 7%; border-radius: 50%; background-color: #AEAEB2; transition: 0.3s; border: 1px solid black}
+#activar_capa_6:hover{cursor: pointer;}
+
+#activar_capa_7{position: absolute; left: 70%; top: 75%; height: 5%; width: 7%; border-radius: 50%; background-color: #AEAEB2; transition: 0.3s; border: 1px solid black}
+#activar_capa_7:hover{cursor: pointer;}
+
+#capa1_text{position: absolute; left: 30%; top: 12%;}
+#capa2_text{position: absolute; left: 30%; top: 22%;}
+#capa3_text{position: absolute; left: 30%; top: 32%;}
+#capa4_text{position: absolute; left: 30%; top: 42%;}
+#capa5_text{position: absolute; left: 30%; top: 52%;}
+#capa6_text{position: absolute; left: 30%; top: 62%;}
+#capa7_text{position: absolute; left: 30%; top: 72%;}
+/* ------------------------------------------------ */
+
+/*#line_cont{position: absolute; left: 10%; top:5%; height: 60%; width: 80%;}*/
+/*#char_count{position: absolute; left: 10%; top: 67%; height: 60%; width: 80%;}
+#power_text{position: absolute; left: 68%; height: 30%; width: 30%; top: 39%;}
+#charts_tramo{display: none;}
+#polar_chart_cont{position: absolute; height: 50%; width: 90%; top: 50%; left: 5%}
+
+#charts_via{position: absolute; left: 2%; top: 30%; height: 10%; width: 50%; }
+#pie_cont{position: absolute; left: 110%; top:40%; height: 80%; width: 80%;}
+#mix_cont{position: absolute; top: 330%; left: 10%; height: 70%; width: 80%;}
+#notas{position: absolute; left: 110%; height: 60%; width: 80%; top: 380%}
+#guardar_btn{position: absolute; left: 110%; top: 555%}
+
+
+#tabla_cont{position: absolute; top: 1%; left: 20%;}
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-1mi4{font-weight:bold; font-family:Arial; background-color:#2c5289; color:#ffffff; border-color:#333333; text-align:center; vertical-align:top}
+.tg .tg-ao2g{border-color:#333333;text-align:center;vertical-align:top}
+.tg .tg-jnby{background-color:#c0c0c0;border-color:#333333;text-align:center;vertical-align:top}*/
+
+#tca_panel{position: absolute; right: 0%; bottom: 3.5%; height: 35%; width: 0%; background-color: white; z-index: 15; transition: 1s; opacity: 90%;}
+#tca_cont{position: absolute; height: 75%; width: 75%; left: 18%; top: 3.5%} 
+
+/*#btn_extras1{position: absolute; left: 110%; top: 635%}
+#btn_extras2{position: absolute; left: 125%; top: 635%}
+#btn_extras3{position: absolute; left: 150%; top: 635%}*/
+
+/* Panel de leyendas */
+#leyenda_capas_panel{position: absolute; top: 52%; right: 0%; height: 20%; width: 0%; opacity: 0.9; background-color: white; border-bottom-left-radius: 3%; transition: 1s;}
+#leyenda_actuaciones{position: absolute; height: 90%; width: 90%; top: 5%;}
+
+#leyenda_capas_panel2{position: absolute; bottom: 1%; right: 0%; height: 20%; width: 0%; opacity: 0.9; background-color: white; border-bottom-left-radius: 3%; transition: 1s;}
+#leyenda_actuaciones2{position: absolute; height: 90%; width: 90%; top: 5%;}
+/* ------------------------------------------------ */
+
+/* Opciones en búsqueda */
+#P_actuacion{position: absolute; top: 1%; left: 10%; height: 4%; width: 20%;border-top: 3px solid #153F7C; border-left: 3px solid #153F7C; border-right: 3px solid #153F7C; border-bottom: 3px solid #153F7C;  transition: 0.5s;  text-align: center; vertical-align: middle; font-family: Arial; padding-top: 1.7%; cursor: pointer;}
+#P_expediente{position: absolute; top: 1%; left: 31%; height: 4%; width: 20%;border-top: 3px solid #153F7C; border-left: 3px solid #153F7C; border-right: 3px solid #153F7C; border-bottom: 3px solid #153F7C;  transition: 0.5s; text-align: center; vertical-align: middle; font-family: Arial; padding-top: 1.7%; cursor: pointer;}
+#P_concello{position: absolute; top: 1%; left: 52%; height: 4%; width: 20%;border-top: 3px solid #153F7C; border-left: 3px solid #153F7C; border-right: 3px solid #153F7C; border-bottom: 3px solid #153F7C;  transition: 0.5s; text-align: center; vertical-align: middle; font-family: Arial; padding-top: 1.7%; cursor: pointer;}
+#P_estado{position: absolute; top: 1%; left: 73%; height: 4%; width: 20%;border-top: 3px solid #153F7C; border-left: 3px solid #153F7C; border-right: 3px solid #153F7C; border-bottom: 3px solid #153F7C;  transition: 0.5s; text-align: center; vertical-align: middle; font-family: Arial; padding-top: 1.7%; cursor: pointer;}
+
+#P_actuacion:hover{background-color: #A5CAFF}
+#P_expediente:hover{background-color: #A5CAFF}
+#P_concello:hover{background-color: #A5CAFF}
+#P_estado:hover{background-color: #A5CAFF}
+/* ------------------------------------------------ */
+
+/* Opciones seleccionables en cada búsqueda */
+#buscador_actuacion{position: absolute;  height: 90%; width: 95%; bottom: 2%; left: 3%; }
+#buscador_expediente{position: absolute;  height: 90%; width: 95%; bottom: 2%; left: 3%; display: none;}
+#buscador_concello{position: absolute;  height: 90%; width: 95%; bottom: 2%; left: 3%;display: none; }
+#buscador_estado{position: absolute;  height: 90%; width: 95%; bottom: 2%; left: 3%;display: none; }
+/* ------------------------------------------------ */
+
+/* Buscador de actuaciones y expedientes */
+
+	#myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 90%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */}
+
+	#myUL {
+	  /* Remove default list styling */
+	  list-style-type: none;
+	  padding: 0;
+	  margin: 0;
+	  font-family:Arial
+	}	
+
+	#myUL li a {
+	  border: 1px solid #ddd; /* Add a border to all links */
+	  margin-top: -1px; /* Prevent double borders */
+	  background-color: #f6f6f6; /* Grey background color */
+	  padding: 12px; /* Add some padding */
+	  text-decoration: none; /* Remove default text underline */
+	  font-size: 18px; /* Increase the font-size */
+	  color: black; /* Add a black text color */
+	  display: block; 
+	  font-family:Arial/* Make it into a block element to fill the whole list */
+	}	
+
+	#myUL li a:hover:not(.header) {
+	  background-color: #eee;
+	  font-family:Arial /* Add a hover effect to all links, except for headers */
+	}
+
+
+	#myInput2 {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 90%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px;
+  font-family:Arial /* Add some space below the input */}
+
+	#myUL2 {
+	  /* Remove default list styling */
+	  list-style-type: none;
+	  padding: 0;
+	  margin: 0;
+	  font-family:Arial
+	}	
+
+	#myUL2 li a {
+	  border: 1px solid #ddd; /* Add a border to all links */
+	  margin-top: -1px; /* Prevent double borders */
+	  background-color: #f6f6f6; /* Grey background color */
+	  padding: 12px; /* Add some padding */
+	  text-decoration: none; /* Remove default text underline */
+	  font-size: 18px; /* Increase the font-size */
+	  color: black; /* Add a black text color */
+	  display: block;
+	  font-family:Arial /* Make it into a block element to fill the whole list */
+	}	
+
+	#myUL2 li a:hover:not(.header) {
+	  background-color: #eee;
+	  font-family:Arial /* Add a hover effect to all links, except for headers */
+	}
+/* ------------------------------------------------ */
+
+/* PowerBI abierto  */
+#iframe_content{position: absolute; top: 8%; left: 1%; height: 90%; width: 90%; z-index: 5}
+/* ------------------------------------------------ */
+
+/* Panel expedientes por cada actuacion */
+#exp_actuacion{position: absolute; right: -10%; z-index: -1; top: 3%; height: 60%; width: 0%; background-color: white;   transition: 1s;}
+#exp_actuacion2{position: absolute; right: -10%; z-index: -1; top: 3%; height: 60%; width: 0%; background-color: white;   transition: 1s;}
+#exp_actuacion3{position: absolute; right: -10%; z-index: -1; top: 3%; height: 60%; width: 0%; background-color: white;   transition: 1s;}
+/* ------------------------------------------------ */
+
+#pano{position: absolute; right: -10%; z-index: -1; bottom: 2%; height: 40%; width: 0%; background-color: white; }
+
+/* Cambio tipos Capa */
+#capas_ico{position: absolute; top: 3%; left: 4%; height: 3%; width: 2%; cursor: pointer;}
+/* Icono PowerBI */
+#power_logo{position: relative; top: 10%; left: 60%; height: 6%; width: 14%; border-radius: 15%; border: 3px solid black; z-index: 2}
+
+/* Añadir en concellos */
+#exp_corunha{position: absolute; right: -10%; z-index: -1; top: 3%; height: 40%; width: 0%; background-color: white;   transition: 0.5s;}
+#exp_arteixo{position: absolute; right: -10%; z-index: -1; top: 3%; height: 40%; width: 0%; background-color: white;   transition: 0.5s;}
+
+#estado_select{width: 80%; height: 5%;}
+
+/* Panel informacion expediente */
+
+.expediente_popup{
+			position: absolute; 
+			left:200%; 
+			top: 2.5%; 
+			height: 68%; 
+			width: 0%;
+			background-color: rgb(250,250,250); 
+			border-radius: 0.5%;
+			z-index: 15; 
+			transition: 1s; 
+			font-size: 14px;
+			}
+
+		
+
+		#T0 {
+			font-weight: bolder;
+			font-size: 20px;
+			color: #153F7C;
+			padding-left: 38%;}
+
+		#T0 span {
+			color: black;
+		}
+
+		.informeH {
+			color: black;
+			font-size: 100%;
+			margin: 2.5%;
+			border-radius: 6px;
+			padding: 0.5%;
+			max-height: 3.6%;
+			max-width: 10%;
+			font-weight: bold;
+			overflow:hidden;
+		}
+
+		.informe {
+			color: #153F7C;
+			font-size: 100%;
+			font-weight: bolder;
+			margin: 2%;
+			border-radius: 6px;
+			padding: 0.5%;
+			max-height: 4.2%;
+			max-width: 18%;
+			overflow:hidden;
+		}
+
+		#T1_1{position: absolute; left: 2%; top: 6%}
+		#P1_1{position: absolute; left: 10%; top: 6%; padding-left: 2%; padding-right: 2%;}
+		#T1_2{position: absolute; left: 22%; top: 6%}
+		#P1_2{position: absolute; left: 30%; top: 6%; padding-left: 2%; padding-right: 2%;}
+		#T1_3{position: absolute; left: 40%; top: 6%}
+		#P1_3{position: absolute; left: 48%; top: 6%; padding-left: 2%; padding-right: 2%;}
+		#T1_4{position: absolute; left: 66%; top: 6%}
+		#P1_4{position: absolute; left: 75%; top: 6%; padding-left: 2%; padding-right: 2%;}
+
+		#T2_1{position: absolute; left: 2%; top: 10%}
+		#P2_1{position: absolute; left: 15%; top: 10%; padding-left: 2%; padding-right: 2%; max-width: 85%;}
+
+		#T3_1{position: absolute; left: 2%; top: 16%}
+		#P3_1{position: absolute; left: 15%; top: 16%; padding-left: 2%; padding-right: 2%;}
+		#T3_2{position: absolute; left: 35%; top: 16%}
+		#P3_2{position: absolute; left: 45%; top: 16%; padding-left: 2%; padding-right: 2%;}
+
+		#T4_1{position: absolute; left: 2%; top: 20%}
+		#P4_1{position: absolute; left: 15%; top: 20%; padding-left: 2%; padding-right: 2%;}
+		#T4_2{position: absolute; left: 35%; top: 20%}
+		#P4_2{position: absolute; left: 45%; top: 20%; padding-left: 2%; padding-right: 2%;}
+
+		#T5_1{position: absolute; left: 2%; top: 24%}
+		#P5_1{position: absolute; left: 15%; top: 24%; padding-left: 2%; padding-right: 2%;}
+		#T5_2{position: absolute; left: 35%; top: 24%}
+		#P5_2{position: absolute; left: 45%; top: 24%; padding-left: 2%; padding-right: 2%;}
+		#T5_3{position: absolute; left: 65%; top: 24%}
+		#P5_3{position: absolute; left: 75%; top: 24%; padding-left: 2%; padding-right: 2%;}
+
+		#T6_1{position: absolute; left: 2%; top: 30%}
+		#P6_1{position: absolute; left: 15%; top: 30%; padding-left: 2%; padding-right: 2%;}
+		#T6_2{position: absolute; left: 35%; top: 30%}
+		#P6_2{position: absolute; left: 45%; top: 30%; padding-left: 2%; padding-right: 2%; max-width: 85%}
+
+		#T7_1{position: absolute; left: 2%; top: 34%}
+		#P7_1{position: absolute; left: 15%; top: 34%; padding-left: 2%; padding-right: 2%;}
+		#T7_2{position: absolute; left: 35%; top: 34%}
+		#P7_2{position: absolute; left: 45%; top: 34%; padding-left: 2%; padding-right: 2%;}
+
+		#T8_1{position: absolute; left: 2%; top: 44%}
+		#P8_1{position: absolute; left: 15%; top: 44%; padding-left: 2%; padding-right: 2%;}
+		#T8_2{position: absolute; left: 35%; top: 44%}
+		#P8_2{position: absolute; left: 45%; top: 44%; padding-left: 2%; padding-right: 2%;}
+
+		#T9_1{position: absolute; left: 2%; top: 38%}
+		#P9_1{position: absolute; left: 15%; top: 38%; padding-left: 2%; padding-right: 2%; max-width: 85%;}
+
+		#T10_1{position: absolute; left: 2%; top: 48%}
+		#P10_1{position: absolute; left: 15%; top: 48%; padding-left: 2%; padding-right: 2%;}
+		#T10_2{position: absolute; left: 35%; top: 48%}
+		#P10_2{position: absolute; left: 45%; top: 48%; padding-left: 2%; padding-right: 2%;}
+
+		#T11_1{position: absolute; left: 2%; top: 52%}
+		#P11_1{position: absolute; left: 15%; top: 52%; padding-left: 2%; padding-right: 2%;}
+		#T11_2{position: absolute; left: 35%; top: 52%}
+		#P11_2{position: absolute; left: 45%; top: 52%; padding-left: 2%; padding-right: 2%;}
+
+		#T12_1{position: absolute; left: 2%; top: 56%}
+		#P12_1{position: absolute; left: 15%; top: 56%; padding-left: 2%; padding-right: 2%;}
+		#T12_2{position: absolute; left: 35%; top: 56%}
+		#P12_2{position: absolute; left: 45%; top: 56%; padding-left: 2%; padding-right: 2%;}
+
+		#T13_1{position: absolute; left: 2%; top: 60%}
+		#P13_1{position: absolute; left: 15%; top: 60%; padding-left: 2%; padding-right: 2%;}
+		#T13_2{position: absolute; left: 35%; top: 60%}
+		#P13_2{position: absolute; left: 45%; top: 60%; padding-left: 2%; padding-right: 2%;}
+
+		#T14_1{position: absolute; left: 2%; top: 64%}
+		#P14_1{position: absolute; left: 15%; top: 64%; padding-left: 2%; padding-right: 2%;}
+		#T14_2{position: absolute; left: 35%; top: 64%}
+		#P14_2{position: absolute; left: 45%; top: 64%; padding-left: 2%; padding-right: 2%;}
+		#T14_3{position: absolute; left: 65%; top: 64%}
+		#P14_3{position: absolute; left: 75%; top: 64%; padding-left: 2%; padding-right: 2%;}
+
+		#T15_1{position: absolute; left: 2%; top: 72%}
+		#P15_1{position: absolute; left: 15%; top: 72%; padding-left: 2%; padding-right: 2%;}
+		#T15_2{position: absolute; left: 65%; top: 72%}
+		#P15_2{position: absolute; left: 75%; top: 72%; padding-left: 2%; padding-right: 2%;}
+
+		#T16_1{position: absolute; left: 2%; top: 76%}
+		#P16_1{position: absolute; left: 15%; top: 76%; padding-left: 2%; padding-right: 2%; max-width: 45%;}
+		#T16_2{position: absolute; left: 65%; top: 76%}
+		#P16_2{position: absolute; left: 75%; top: 76%; padding-left: 2%; padding-right: 2%;}
+
+		#T17_1{position: absolute; left: 2%; top: 80%}
+		#P17_1{position: absolute; left: 15%; top: 80%; padding-left: 2%; padding-right: 2%;}
+		#T17_2{position: absolute; left: 35%; top: 80%}
+		#P17_2{position: absolute; left: 45%; top: 80%; padding-left: 2%; padding-right: 2%;}
+		#T17_3{position: absolute; left: 65%; top: 80%}
+		#P17_3{position: absolute; left: 75%; top: 80%; padding-left: 2%; padding-right: 2%;}
+
+		#T18_1{position: absolute; left: 2%; top: 84%}
+		#P18_1{position: absolute; left: 15%; top: 84%; padding-left: 2%; padding-right: 2%; max-width: 85%;}
+/* ------------------------------------------------ */

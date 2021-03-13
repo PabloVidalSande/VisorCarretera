@@ -101,7 +101,12 @@
 	<div id="pw_panel4"><img src="icon/close.png" id="pw_close_ico" onclick="power_close4()">
     <div id="iframe_content"><iframe width="100%" height="100%" src="https://app.powerbi.com/reportEmbed?reportId=bdc39d6a-0088-4ea3-b9fa-2ef373bf9b08&autoAuth=true&ctid=8975f33d-b4bc-4ef3-a26c-60d8dbd33491&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWV1cm9wZS1ub3J0aC1iLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9&pageName=ReportSectiona6a657edce7c153178f4" frameborder="0" allowFullScreen="true"></iframe></div>
 	</div>
-
+    
+	<!-- Div Paneles pequeños informativos -->
+	<div id="tca_panel"><img src="icon/close.png" id="pw_close_ico" onclick="tca_panel_close()">
+    <!-- Mapa inferior de maps -->
+	<div id="tca_cont"><canvas id="radar-chart" width="800" height="600"></canvas></div>
+	</div>
 
 
     <!-- ················ -->
@@ -187,6 +192,13 @@
 				</ul>
 		</div>
 
+        <!-- Cargar Capas por Concello -->
+		<div id="buscador_concello" >
+			<ul id="myUL2">
+  					<li onclick="añadir_corunha()"><a href="#">A Coruña</a></li>
+  					<li onclick="añadir_arteixo()"><a href="#">Arteixo</a></li>	
+				</ul>
+		</div>
 
         <!-- Cargar Capas por estado de la carretera -->
 		<div id="buscador_estado" >
@@ -286,6 +298,265 @@
     		<li onclick="añadir_1377_2()"><a href="#">AC/19/072.01 Mantenimiento del firme Avda. Fisterra.</a></li>
   			<li onclick="añadir_1405()"><a href="#">AC/19/072.01 Control señalización Avda. Fisterra.</a></li>
 		</ul>
+    </div>
+    
+    <!-- Crear INFORMES EXPEDIENTES -->
+    <!-- Informe número 1 -->
+    <div id="1" class="expediente_popup"><img src="icon/close.png" id="pw_close_ico" onclick="informe_close()">
+		<h1 id="T0">F<span>ICHA DE EXPEDIENTE</span></h1>
+    	<h1 class="informeH" id="T1_1">Año:</h1><p class="informe" id="P1_1">2019</p><h1 class="informeH" id="T1_2">Tipo:</h1><p class="informe" id="P1_2">Obra</p><h1 class="informeH" id="T1_3">Ref:</h1><p class="informe" id="P1_3">E/178/2019</p><h1 class="informeH" id="T1_4">Clave:</h1><p class="informe" id="P1_4">AC/19/015.01</p>
+
+    	<h1 class="informeH" id="T2_1">Título:</h1><p class="informe" id="P2_1">Obra As Somozas</p>
+
+    	<h1 class="informeH" id="T3_1">Procedimiento:</h1><p class="informe" id="P3_1">Abierto</p><h1 class="informeH" id="T3_2">Trámite:</h1><p class="informe" id="P3_2">Ordinario</p>
+
+    	<h1 class="informeH" id="T4_1">Forma:</h1><p class="informe" id="P4_1">Procedimiento Multicriterio</p><h1 class="informeH" id="T4_2">Tramitación:</h1><p class="informe" id="P4_2">Anticipada</p>
+
+    	<h1 class="informeH" id="T5_1">DOG:</h1><p class="informe" id="P5_1">29/01/2010</p><h1 class="informeH" id="T5_2">BOE:</h1><p class="informe" id="P5_2">29/01/2010</p><h1 class="informeH" id="T5_3">DOUE:</h1><p class="informe" id="P5_3">29/01/2010</p>
+
+    	<h1 class="informeH" id="T6_1">Aplicación:</h1><p class="informe" id="P6_1">2019-10-A1-512B-110.01</p><h1 class="informeH" id="T6_2">Código:</h1><p class="informe" id="P6_2">2019-01-110,2019-01-110</p>
+
+    	<h1 class="informeH" id="T7_1">Plazo ejec:</h1><p class="informe" id="P7_1">36 meses</p><h1 class="informeH" id="T7_2">Num. anual:</h1><p class="informe" id="P7_2">4</p>
+
+		<h1 class="informeH" id="T8_1">Contratación:</h1><p class="informe" id="P8_1">53.238,00€</p><h1 class="informeH" id="T8_2">Adjudicación:</h1><p class="informe" id="P8_2">43.742,00€</p>
+
+		<h1 class="informeH" id="T9_1">Municipios:</h1><p class="informe" id="P9_1">As Somozas</p>
+
+		<h1 class="informeH" id="T10_1">2020</h1><p class="informe" id="P10_1">10.000,00€</p><h1 class="informeH" id="T10_2">2020</h1><p class="informe" id="P10_2">10.000,00€</p>
+		<h1 class="informeH" id="T11_1">2021</h1><p class="informe" id="P11_1">20.000,00€</p><h1 class="informeH" id="T11_2">2021</h1><p class="informe" id="P11_2">20.000,00€</p>
+		<h1 class="informeH" id="T12_1">2022</h1><p class="informe" id="P12_1">20.000,00€</p><h1 class="informeH" id="T12_2">2022</h1><p class="informe" id="P12_2">10.000,00€</p>
+		<h1 class="informeH" id="T13_1">2023</h1><p class="informe" id="P13_1">3.238,00€</p><h1 class="informeH" id="T13_2">2023</h1><p class="informe" id="P13_2">3.742,00€</p>
+
+		<h1 class="informeH" id="T14_1">Año RC liq</h1><p class="informe" id="P14_1"></p><h1 class="informeH" id="T14_2">Importe RC liq.</h1><p class="informe" id="P14_2">0,00€</p><h1 class="informeH" id="T14_3">Tramitador:</h1><p class="informe" id="P14_3">Grupo GIS</p>
+
+		<h1 class="informeH" id="T15_1">Fianza:</h1><p class="informe" id="P15_1">5.089,12€</p><h1 class="informeH" id="T15_2">CPV:</h1><p class="informe" id="P15_2">F45233100</p>
+
+		<h1 class="informeH" id="T16_1">Adjudicatario:</h1><p class="informe" id="P16_1">FUENTES Y CALZADAS INFRAESTRUCTURAS, S.L.</p><h1 class="informeH" id="T16_2">Comunic. adj:</h1><p class="informe" id="P16_2">16/06/2019</p>
+
+		<h1 class="informeH" id="T17_1">Fecha contrato:</h1><p class="informe" id="P17_1">22/11/2019</p><h1 class="informeH" id="T17_2">Envío archivo:</h1><p class="informe" id="P17_2"></p><h1 class="informeH" id="T17_3">NIF adj:</h1><p class="informe" id="P17_3">W-70043XXX</p>
+
+		<h1 class="informeH" id="T18_1">Observaciones:</h1><p class="informe" id="P18_1">23/11/2019 Enviada copia contrato</p>
+    </div>
+
+    <!-- Informe número 2 Felgosa-->
+    <div id="2" class="expediente_popup"><img src="icon/close.png" id="pw_close_ico" onclick="informe_close()">
+		<h1 id="T0">F<span>ICHA DE EXPEDIENTE</span></h1>
+    	<h1 class="informeH" id="T1_1">Año:</h1><p class="informe" id="P1_1">2020</p><h1 class="informeH" id="T1_2">Tipo:</h1><p class="informe" id="P1_2">AT</p><h1 class="informeH" id="T1_3">Ref:</h1><p class="informe" id="P1_3">E/784/2020</p><h1 class="informeH" id="T1_4">Clave:</h1><p class="informe" id="P1_4">AC/19/015.01</p>
+
+    	<h1 class="informeH" id="T2_1">Título:</h1><p class="informe" id="P2_1">Conexión desvío As Felgosas</p>
+
+    	<h1 class="informeH" id="T3_1">Procedimiento:</h1><p class="informe" id="P3_1">Abierto</p><h1 class="informeH" id="T3_2">Trámite:</h1><p class="informe" id="P3_2">Ordinario</p>
+
+    	<h1 class="informeH" id="T4_1">Forma:</h1><p class="informe" id="P4_1">Procedimiento Multicriterio</p><h1 class="informeH" id="T4_2">Tramitación:</h1><p class="informe" id="P4_2">Anticipada</p>
+
+    	<h1 class="informeH" id="T5_1">DOG:</h1><p class="informe" id="P5_1">29/01/2010</p><h1 class="informeH" id="T5_2">BOE:</h1><p class="informe" id="P5_2">29/01/2010</p><h1 class="informeH" id="T5_3">DOUE:</h1><p class="informe" id="P5_3">29/01/2010</p>
+
+    	<h1 class="informeH" id="T6_1">Aplicación:</h1><p class="informe" id="P6_1">2013-07-A1-512B-110.02</p><h1 class="informeH" id="T6_2">Código:</h1><p class="informe" id="P6_2">2020-03-110,2019-01-110</p>
+
+    	<h1 class="informeH" id="T7_1">Plazo ejec:</h1><p class="informe" id="P7_1">24 meses</p><h1 class="informeH" id="T7_2">Num. anual:</h1><p class="informe" id="P7_2">3</p>
+
+		<h1 class="informeH" id="T8_1">Contratación:</h1><p class="informe" id="P8_1">106.929,00€</p><h1 class="informeH" id="T8_2">Adjudicación:</h1><p class="informe" id="P8_2">87.693,00€</p>
+
+		<h1 class="informeH" id="T9_1">Municipios:</h1><p class="informe" id="P9_1">As Felgosas</p>
+
+		<h1 class="informeH" id="T10_1">2021</h1><p class="informe" id="P10_1">30.000,00€</p><h1 class="informeH" id="T10_2">2021</h1><p class="informe" id="P10_2">30.000,00€</p>
+		<h1 class="informeH" id="T11_1">2022</h1><p class="informe" id="P11_1">50.000,00€</p><h1 class="informeH" id="T11_2">2022</h1><p class="informe" id="P11_2">50.000,00€</p>
+		<h1 class="informeH" id="T12_1">2023</h1><p class="informe" id="P12_1">26.929,12€</p><h1 class="informeH" id="T12_2">2023</h1><p class="informe" id="P12_2">7.693,00€</p>
+
+		<h1 class="informeH" id="T14_1">Año RC liq</h1><p class="informe" id="P14_1"></p><h1 class="informeH" id="T14_2">Importe RC liq.</h1><p class="informe" id="P14_2">0,00€</p><h1 class="informeH" id="T14_3">Tramitador:</h1><p class="informe" id="P14_3">Grupo GIS</p>
+
+		<h1 class="informeH" id="T15_1">Fianza:</h1><p class="informe" id="P15_1">55.000,00€</p><h1 class="informeH" id="T15_2">CPV:</h1><p class="informe" id="P15_2">F45233100</p>
+
+		<h1 class="informeH" id="T16_1">Adjudicatario:</h1><p class="informe" id="P16_1">GIS, S.L.</p><h1 class="informeH" id="T16_2">Comunic. adj:</h1><p class="informe" id="P16_2">16/06/2020</p>
+
+		<h1 class="informeH" id="T17_1">Fecha contrato:</h1><p class="informe" id="P17_1">01/01/2019</p><h1 class="informeH" id="T17_2">Envío archivo:</h1><p class="informe" id="P17_2"></p><h1 class="informeH" id="T17_3">NIF adj:</h1><p class="informe" id="P17_3">W-70043XXX</p>
+
+		<h1 class="informeH" id="T18_1">Observaciones:</h1><p class="informe" id="P18_1">10/01/2019 Modificación de contrato para la firma</p>
+
+    </div>
+
+    <!-- Informe número 3 MSV Coruña-->
+    <div id="3" class="expediente_popup"><img src="icon/close.png" id="pw_close_ico" onclick="informe_close()">
+		<h1 id="T0">F<span>ICHA DE EXPEDIENTE</span></h1>
+    	<h1 class="informeH" id="T1_1">Año:</h1><p class="informe" id="P1_1">2020</p><h1 class="informeH" id="T1_2">Tipo:</h1><p class="informe" id="P1_2">Obra</p><h1 class="informeH" id="T1_3">Ref:</h1><p class="informe" id="P1_3">E/094/2019</p><h1 class="informeH" id="T1_4">Clave:</h1><p class="informe" id="P1_4">AC/19/025.01</p>
+
+    	<h1 class="informeH" id="T2_1">Título:</h1><p class="informe" id="P2_1">Mejora seguridad vial A Coruña</p>
+
+    	<h1 class="informeH" id="T3_1">Procedimiento:</h1><p class="informe" id="P3_1">Abierto</p><h1 class="informeH" id="T3_2">Trámite:</h1><p class="informe" id="P3_2">Ordinario</p>
+
+    	<h1 class="informeH" id="T4_1">Forma:</h1><p class="informe" id="P4_1">Procedimiento Multicriterio</p><h1 class="informeH" id="T4_2">Tramitación:</h1><p class="informe" id="P4_2">Anticipada</p>
+
+    	<h1 class="informeH" id="T5_1">DOG:</h1><p class="informe" id="P5_1">29/01/2010</p><h1 class="informeH" id="T5_2">BOE:</h1><p class="informe" id="P5_2">29/01/2010</p><h1 class="informeH" id="T5_3">DOUE:</h1><p class="informe" id="P5_3">29/01/2010</p>
+
+    	<h1 class="informeH" id="T6_1">Aplicación:</h1><p class="informe" id="P6_1">2013-07-A1-512B-1854.01</p><h1 class="informeH" id="T6_2">Código:</h1><p class="informe" id="P6_2">2019-01-242,2019-01-415</p>
+
+    	<h1 class="informeH" id="T7_1">Plazo ejec:</h1><p class="informe" id="P7_1">36 meses</p><h1 class="informeH" id="T7_2">Num. anual:</h1><p class="informe" id="P7_2">4</p>
+
+		<h1 class="informeH" id="T8_1">Contratación:</h1><p class="informe" id="P8_1">163.485,00€</p><h1 class="informeH" id="T8_2">Adjudicación:</h1><p class="informe" id="P8_2">128.960,00€</p>
+
+		<h1 class="informeH" id="T9_1">Municipios:</h1><p class="informe" id="P9_1">A Coruña</p>
+
+		<h1 class="informeH" id="T10_1">2020</h1><p class="informe" id="P10_1">50.000,00€</p><h1 class="informeH" id="T10_2">2020</h1><p class="informe" id="P10_2">40.000,00€</p>
+		<h1 class="informeH" id="T11_1">2021</h1><p class="informe" id="P11_1">50.000,00€</p><h1 class="informeH" id="T11_2">2021</h1><p class="informe" id="P11_2">40.000,00€</p>
+		<h1 class="informeH" id="T12_1">2022</h1><p class="informe" id="P12_1">50.000,00€</p><h1 class="informeH" id="T12_2">2022</h1><p class="informe" id="P12_2">40.000,00€</p>
+		<h1 class="informeH" id="T13_1">2023</h1><p class="informe" id="P13_1">13.485,00€</p><h1 class="informeH" id="T13_2">2023</h1><p class="informe" id="P13_2">8.960,00€</p>
+
+		<h1 class="informeH" id="T14_1">Año RC liq</h1><p class="informe" id="P14_1"></p><h1 class="informeH" id="T14_2">Importe RC liq.</h1><p class="informe" id="P14_2">0,00€</p><h1 class="informeH" id="T14_3">Tramitador:</h1><p class="informe" id="P14_3">Grupo GIS</p>
+
+		<h1 class="informeH" id="T15_1">Fianza:</h1><p class="informe" id="P15_1">102.032,10€</p><h1 class="informeH" id="T15_2">CPV:</h1><p class="informe" id="P15_2">F45233100</p>
+
+		<h1 class="informeH" id="T16_1">Adjudicatario:</h1><p class="informe" id="P16_1">GIS OBRAS PÚBLICAS, S.L.</p><h1 class="informeH" id="T16_2">Comunic. adj:</h1><p class="informe" id="P16_2">16/06/2019</p>
+
+		<h1 class="informeH" id="T17_1">Fecha contrato:</h1><p class="informe" id="P17_1">21/06/2019</p><h1 class="informeH" id="T17_2">Envío archivo:</h1><p class="informe" id="P17_2"></p><h1 class="informeH" id="T17_3">NIF adj:</h1><p class="informe" id="P17_3">W-70043XXX</p>
+
+		<h1 class="informeH" id="T18_1">Observaciones:</h1><p class="informe" id="P18_1">25/02/2020 Modificación importe CERO</p>
+    </div>
+
+    <!-- Informe número 4 Ambiental Coruña-->
+    <div id="4" class="expediente_popup"><img src="icon/close.png" id="pw_close_ico" onclick="informe_close()">
+		<h1 id="T0">F<span>ICHA DE EXPEDIENTE</span></h1>
+    	<h1 class="informeH" id="T1_1">Año:</h1><p class="informe" id="P1_1">2019</p><h1 class="informeH" id="T1_2">Tipo:</h1><p class="informe" id="P1_2">Obra</p><h1 class="informeH" id="T1_3">Ref:</h1><p class="informe" id="P1_3">E/044/2019</p><h1 class="informeH" id="T1_4">Clave:</h1><p class="informe" id="P1_4">AC/19/025.01</p>
+
+    	<h1 class="informeH" id="T2_1">Título:</h1><p class="informe" id="P2_1">Obra AC-415</p>
+
+    	<h1 class="informeH" id="T3_1">Procedimiento:</h1><p class="informe" id="P3_1">Abierto</p><h1 class="informeH" id="T3_2">Trámite:</h1><p class="informe" id="P3_2">Ordinario</p>
+
+    	<h1 class="informeH" id="T4_1">Forma:</h1><p class="informe" id="P4_1">Procedimiento Multicriterio</p><h1 class="informeH" id="T4_2">Tramitación:</h1><p class="informe" id="P4_2">Anticipada</p>
+
+    	<h1 class="informeH" id="T5_1">DOG:</h1><p class="informe" id="P5_1">29/01/2010</p><h1 class="informeH" id="T5_2">BOE:</h1><p class="informe" id="P5_2">29/01/2010</p><h1 class="informeH" id="T5_3">DOUE:</h1><p class="informe" id="P5_3">29/01/2010</p>
+
+    	<h1 class="informeH" id="T6_1">Aplicación:</h1><p class="informe" id="P6_1">2013-07-A1-512B-110.01</p><h1 class="informeH" id="T6_2">Código:</h1><p class="informe" id="P6_2">2019-01-242,2019-01-242</p>
+
+    	<h1 class="informeH" id="T7_1">Plazo ejec:</h1><p class="informe" id="P7_1">36 meses</p><h1 class="informeH" id="T7_2">Num. anual:</h1><p class="informe" id="P7_2">4</p>
+
+		<h1 class="informeH" id="T8_1">Contratación:</h1><p class="informe" id="P8_1">39.900,00€</p><h1 class="informeH" id="T8_2">Adjudicación:</h1><p class="informe" id="P8_2">28.486,00€</p>
+
+		<h1 class="informeH" id="T9_1">Municipios:</h1><p class="informe" id="P9_1">As Somozas</p>
+
+		<h1 class="informeH" id="T10_1">2020</h1><p class="informe" id="P10_1">10.000,00€</p><h1 class="informeH" id="T10_2">2020</h1><p class="informe" id="P10_2">9.000,00€</p>
+		<h1 class="informeH" id="T11_1">2021</h1><p class="informe" id="P11_1">10.000,00€</p><h1 class="informeH" id="T11_2">2021</h1><p class="informe" id="P11_2">9.000,00€</p>
+		<h1 class="informeH" id="T12_1">2022</h1><p class="informe" id="P12_1">10.000,00€</p><h1 class="informeH" id="T12_2">2022</h1><p class="informe" id="P12_2">9.000,00€</p>
+		<h1 class="informeH" id="T13_1">2023</h1><p class="informe" id="P13_1">9.900,00€</p><h1 class="informeH" id="T13_2">2023</h1><p class="informe" id="P13_2">1.486,00€</p>
+
+		<h1 class="informeH" id="T14_1">Año RC liq</h1><p class="informe" id="P14_1"></p><h1 class="informeH" id="T14_2">Importe RC liq.</h1><p class="informe" id="P14_2">0,00€</p><h1 class="informeH" id="T14_3">Tramitador:</h1><p class="informe" id="P14_3">Grupo GIS</p>
+
+		<h1 class="informeH" id="T15_1">Fianza:</h1><p class="informe" id="P15_1">5.000,00€</p><h1 class="informeH" id="T15_2">CPV:</h1><p class="informe" id="P15_2">F45233100</p>
+
+		<h1 class="informeH" id="T16_1">Adjudicatario:</h1><p class="informe" id="P16_1">PUENTES Y CALZADAS INFRAESTRUCTURAS, S.L.U.</p><h1 class="informeH" id="T16_2">Comunic. adj:</h1><p class="informe" id="P16_2">16/06/2019</p>
+
+		<h1 class="informeH" id="T17_1">Fecha contrato:</h1><p class="informe" id="P17_1">21/12/2019</p><h1 class="informeH" id="T17_2">Envío archivo:</h1><p class="informe" id="P17_2"></p><h1 class="informeH" id="T17_3">NIF adj:</h1><p class="informe" id="P17_3">W-70043XXX</p>
+
+		<h1 class="informeH" id="T18_1">Observaciones:</h1><p class="informe" id="P18_1">19/02/2020 Enviada copia contrato</p>
+	</div>
+
+	<!-- Informe número 5 Firme avd. Fisterre -->
+	<div id="5" class="expediente_popup"><img src="icon/close.png" id="pw_close_ico" onclick="informe_close()">
+		<h1 id="T0">F<span>ICHA DE EXPEDIENTE</span></h1>
+    	<h1 class="informeH" id="T1_1">Año:</h1><p class="informe" id="P1_1">2019</p><h1 class="informeH" id="T1_2">Tipo:</h1><p class="informe" id="P1_2">Obra</p><h1 class="informeH" id="T1_3">Ref:</h1><p class="informe" id="P1_3">E/094/2019</p><h1 class="informeH" id="T1_4">Clave:</h1><p class="informe" id="P1_4">AC/19/072.01</p>
+
+    	<h1 class="informeH" id="T2_1">Título:</h1><p class="informe" id="P2_1">Obra Avenida Fisterra</p>
+
+    	<h1 class="informeH" id="T3_1">Procedimiento:</h1><p class="informe" id="P3_1">Abierto</p><h1 class="informeH" id="T3_2">Trámite:</h1><p class="informe" id="P3_2">Ordinario</p>
+
+    	<h1 class="informeH" id="T4_1">Forma:</h1><p class="informe" id="P4_1">Procedimiento Multicriterio</p><h1 class="informeH" id="T4_2">Tramitación:</h1><p class="informe" id="P4_2">Anticipada</p>
+
+    	<h1 class="informeH" id="T5_1">DOG:</h1><p class="informe" id="P5_1">29/01/2010</p><h1 class="informeH" id="T5_2">BOE:</h1><p class="informe" id="P5_2">29/01/2010</p><h1 class="informeH" id="T5_3">DOUE:</h1><p class="informe" id="P5_3">29/01/2010</p>
+
+    	<h1 class="informeH" id="T6_1">Aplicación:</h1><p class="informe" id="P6_1">2013-07-A1-512B-1377.01</p><h1 class="informeH" id="T6_2">Código:</h1><p class="informe" id="P6_2">2019-01-552,2019-01-552</p>
+
+    	<h1 class="informeH" id="T7_1">Plazo ejec:</h1><p class="informe" id="P7_1">24 meses</p><h1 class="informeH" id="T7_2">Num. anual:</h1><p class="informe" id="P7_2">3</p>
+
+		<h1 class="informeH" id="T8_1">Contratación:</h1><p class="informe" id="P8_1">70.598,00€</p><h1 class="informeH" id="T8_2">Adjudicación:</h1><p class="informe" id="P8_2">46.492,00€</p>
+
+		<h1 class="informeH" id="T9_1">Municipios:</h1><p class="informe" id="P9_1">A Coruña, Arteixo</p>
+
+		<h1 class="informeH" id="T10_1">2020</h1><p class="informe" id="P10_1">25.000,00€</p><h1 class="informeH" id="T10_2">2020</h1><p class="informe" id="P10_2">20.000,00€</p>
+		<h1 class="informeH" id="T11_1">2021</h1><p class="informe" id="P11_1">25.000,00€</p><h1 class="informeH" id="T11_2">2021</h1><p class="informe" id="P11_2">20.000,00€</p>
+		<h1 class="informeH" id="T12_1">2022</h1><p class="informe" id="P12_1">20.598,00€</p><h1 class="informeH" id="T12_2">2022</h1><p class="informe" id="P12_2">6.492,00€</p>
+
+		<h1 class="informeH" id="T14_1">Año RC liq</h1><p class="informe" id="P14_1"></p><h1 class="informeH" id="T14_2">Importe RC liq.</h1><p class="informe" id="P14_2">0,00€</p><h1 class="informeH" id="T14_3">Tramitador:</h1><p class="informe" id="P14_3">Grupo GIS</p>
+
+		<h1 class="informeH" id="T15_1">Fianza:</h1><p class="informe" id="P15_1">12.050,00€</p><h1 class="informeH" id="T15_2">CPV:</h1><p class="informe" id="P15_2">F45233100</p>
+
+		<h1 class="informeH" id="T16_1">Adjudicatario:</h1><p class="informe" id="P16_1">GIS OBRAS PÚBLICAS, S.L.</p><h1 class="informeH" id="T16_2">Comunic. adj:</h1><p class="informe" id="P16_2">10/01/2020</p>
+
+		<h1 class="informeH" id="T17_1">Fecha contrato:</h1><p class="informe" id="P17_1">10/01/2019</p><h1 class="informeH" id="T17_2">Envío archivo:</h1><p class="informe" id="P17_2"></p><h1 class="informeH" id="T17_3">NIF adj:</h1><p class="informe" id="P17_3">W-70043XXX</p>
+
+		<h1 class="informeH" id="T18_1">Observaciones:</h1><p class="informe" id="P18_1">25/02/2020 Modificación importe CERO</p>
+    </div>
+    
+    <!-- Informe número 6 Fisterra 2 -->
+    <div id="6" class="expediente_popup"><img src="icon/close.png" id="pw_close_ico" onclick="informe_close()">
+		<h1 id="T0">F<span>ICHA DE EXPEDIENTE</span></h1>
+    	<h1 class="informeH" id="T1_1">Año:</h1><p class="informe" id="P1_1">2020</p><h1 class="informeH" id="T1_2">Tipo:</h1><p class="informe" id="P1_2">AT</p><h1 class="informeH" id="T1_3">Ref:</h1><p class="informe" id="P1_3">E/094/2020</p><h1 class="informeH" id="T1_4">Clave:</h1><p class="informe" id="P1_4">AC/19/072.01</p>
+
+    	<h1 class="informeH" id="T2_1">Título:</h1><p class="informe" id="P2_1">Refuerzo del firme - Avenida Fisterra</p>
+
+    	<h1 class="informeH" id="T3_1">Procedimiento:</h1><p class="informe" id="P3_1">Abierto</p><h1 class="informeH" id="T3_2">Trámite:</h1><p class="informe" id="P3_2">Ordinario</p>
+
+    	<h1 class="informeH" id="T4_1">Forma:</h1><p class="informe" id="P4_1">Procedimiento Multicriterio</p><h1 class="informeH" id="T4_2">Tramitación:</h1><p class="informe" id="P4_2">Anticipada</p>
+
+    	<h1 class="informeH" id="T5_1">DOG:</h1><p class="informe" id="P5_1">29/01/2010</p><h1 class="informeH" id="T5_2">BOE:</h1><p class="informe" id="P5_2">29/01/2010</p><h1 class="informeH" id="T5_3">DOUE:</h1><p class="informe" id="P5_3">29/01/2010</p>
+
+    	<h1 class="informeH" id="T6_1">Aplicación:</h1><p class="informe" id="P6_1">2013-07-A1-512B-1377.02</p><h1 class="informeH" id="T6_2">Código:</h1><p class="informe" id="P6_2">2019-01-552,2019-01-552</p>
+
+    	<h1 class="informeH" id="T7_1">Plazo ejec:</h1><p class="informe" id="P7_1">24 meses</p><h1 class="informeH" id="T7_2">Num. anual:</h1><p class="informe" id="P7_2">3</p>
+
+		<h1 class="informeH" id="T8_1">Contratación:</h1><p class="informe" id="P8_1">133.881,00€</p><h1 class="informeH" id="T8_2">Adjudicación:</h1><p class="informe" id="P8_2">76.660,00€</p>
+
+		<h1 class="informeH" id="T9_1">Municipios:</h1><p class="informe" id="P9_1">A Coruña, Arteixo</p>
+
+		<h1 class="informeH" id="T10_1">2020</h1><p class="informe" id="P10_1">50.000,00€</p><h1 class="informeH" id="T10_2">2020</h1><p class="informe" id="P10_2">25.000,00€</p>
+		<h1 class="informeH" id="T11_1">2021</h1><p class="informe" id="P11_1">50.000,00€</p><h1 class="informeH" id="T11_2">2021</h1><p class="informe" id="P11_2">25.000,00€</p>
+		<h1 class="informeH" id="T12_1">2022</h1><p class="informe" id="P12_1">33.881,00€</p><h1 class="informeH" id="T12_2">2022</h1><p class="informe" id="P12_2">26.660,00€</p>
+
+		<h1 class="informeH" id="T14_1">Año RC liq</h1><p class="informe" id="P14_1"></p><h1 class="informeH" id="T14_2">Importe RC liq.</h1><p class="informe" id="P14_2">0,00€</p><h1 class="informeH" id="T14_3">Tramitador:</h1><p class="informe" id="P14_3">Grupo GIS</p>
+
+		<h1 class="informeH" id="T15_1">Fianza:</h1><p class="informe" id="P15_1">15.000,00€</p><h1 class="informeH" id="T15_2">CPV:</h1><p class="informe" id="P15_2">F45233100</p>
+
+		<h1 class="informeH" id="T16_1">Adjudicatario:</h1><p class="informe" id="P16_1">GIS OBRAS PÚBLICAS, S.L.</p><h1 class="informeH" id="T16_2">Comunic. adj:</h1><p class="informe" id="P16_2">10/01/2020</p>
+
+		<h1 class="informeH" id="T17_1">Fecha contrato:</h1><p class="informe" id="P17_1">10/01/2020</p><h1 class="informeH" id="T17_2">Envío archivo:</h1><p class="informe" id="P17_2"></p><h1 class="informeH" id="T17_3">NIF adj:</h1><p class="informe" id="P17_3">W-70043XXX</p>
+
+		<h1 class="informeH" id="T18_1">Observaciones:</h1><p class="informe" id="P18_1"></p>
+    </div>
+
+    <!-- Informe número 7 Señalizacion avd Fisterra -->
+    <div id="7" class="expediente_popup"><img src="icon/close.png" id="pw_close_ico" onclick="informe_close()">
+		<h1 id="T0">F<span>ICHA DE EXPEDIENTE</span></h1>
+    	<h1 class="informeH" id="T1_1">Año:</h1><p class="informe" id="P1_1">2019</p><h1 class="informeH" id="T1_2">Tipo:</h1><p class="informe" id="P1_2">Obra</p><h1 class="informeH" id="T1_3">Ref:</h1><p class="informe" id="P1_3">E/053/2019</p><h1 class="informeH" id="T1_4">Clave:</h1><p class="informe" id="P1_4">AC/19/072.02</p>
+
+    	<h1 class="informeH" id="T2_1">Título:</h1><p class="informe" id="P2_1">Obra - Avenida Fisterra</p>
+
+    	<h1 class="informeH" id="T3_1">Procedimiento:</h1><p class="informe" id="P3_1">Abierto</p><h1 class="informeH" id="T3_2">Trámite:</h1><p class="informe" id="P3_2">Ordinario</p>
+
+    	<h1 class="informeH" id="T4_1">Forma:</h1><p class="informe" id="P4_1">Procedimiento Multicriterio</p><h1 class="informeH" id="T4_2">Tramitación:</h1><p class="informe" id="P4_2">Anticipada</p>
+
+    	<h1 class="informeH" id="T5_1">DOG:</h1><p class="informe" id="P5_1">29/01/2010</p><h1 class="informeH" id="T5_2">BOE:</h1><p class="informe" id="P5_2">29/01/2010</p><h1 class="informeH" id="T5_3">DOUE:</h1><p class="informe" id="P5_3">29/01/2010</p>
+
+    	<h1 class="informeH" id="T6_1">Aplicación:</h1><p class="informe" id="P6_1">2019-07-A1-572B-1405.01</p><h1 class="informeH" id="T6_2">Código:</h1><p class="informe" id="P6_2">2019-01-552,2019-01-552</p>
+
+    	<h1 class="informeH" id="T7_1">Plazo ejec:</h1><p class="informe" id="P7_1">36 meses</p><h1 class="informeH" id="T7_2">Num. anual:</h1><p class="informe" id="P7_2">4</p>
+
+		<h1 class="informeH" id="T8_1">Contratación:</h1><p class="informe" id="P8_1">16.356,00€</p><h1 class="informeH" id="T8_2">Adjudicación:</h1><p class="informe" id="P8_2">12.737,00€</p>
+
+		<h1 class="informeH" id="T9_1">Municipios:</h1><p class="informe" id="P9_1">As Somozas</p>
+
+		<h1 class="informeH" id="T10_1">2020</h1><p class="informe" id="P10_1">5.000,00€</p><h1 class="informeH" id="T10_2">2020</h1><p class="informe" id="P10_2">3.000,00€</p>
+		<h1 class="informeH" id="T11_1">2021</h1><p class="informe" id="P11_1">5.000,00€</p><h1 class="informeH" id="T11_2">2021</h1><p class="informe" id="P11_2">3.000,00€</p>
+		<h1 class="informeH" id="T12_1">2022</h1><p class="informe" id="P12_1">5.000,00€</p><h1 class="informeH" id="T12_2">2022</h1><p class="informe" id="P12_2">3.000,00€</p>
+		<h1 class="informeH" id="T13_1">2023</h1><p class="informe" id="P13_1">1.356,00€</p><h1 class="informeH" id="T13_2">2023</h1><p class="informe" id="P13_2">3.737,00€</p>
+
+		<h1 class="informeH" id="T14_1">Año RC liq</h1><p class="informe" id="P14_1"></p><h1 class="informeH" id="T14_2">Importe RC liq.</h1><p class="informe" id="P14_2">0,00€</p><h1 class="informeH" id="T14_3">Tramitador:</h1><p class="informe" id="P14_3">Grupo GIS</p>
+
+		<h1 class="informeH" id="T15_1">Fianza:</h1><p class="informe" id="P15_1">2.000,00€</p><h1 class="informeH" id="T15_2">CPV:</h1><p class="informe" id="P15_2">F45233100</p>
+
+		<h1 class="informeH" id="T16_1">Adjudicatario:</h1><p class="informe" id="P16_1">FUENTES Y CALZADAS INFRAESTRUCTURAS, S.L.</p><h1 class="informeH" id="T16_2">Comunic. adj:</h1><p class="informe" id="P16_2">16/06/2019</p>
+
+		<h1 class="informeH" id="T17_1">Fecha contrato:</h1><p class="informe" id="P17_1">12/05/2019</p><h1 class="informeH" id="T17_2">Envío archivo:</h1><p class="informe" id="P17_2"></p><h1 class="informeH" id="T17_3">NIF adj:</h1><p class="informe" id="P17_3">W-70043XXX</p>
+
+		<h1 class="informeH" id="T18_1">Observaciones:</h1><p class="informe" id="P18_1"></p>
+
     </div>
 
     <!--.................-->
@@ -402,6 +673,42 @@
     }
 
      
+    // ------------- PANEL DE BI "falso" -------------------- //
+   
+// -- Gráficos de cada TCA -- //
+new Chart(document.getElementById("radar-chart"), {
+    type: 'radar',
+    data: {
+      labels: ["Colisión", "Atropello", "Salida de la vía", "Vuelco", "Otros"],
+      datasets: [
+        {
+          label: "2018",
+          fill: true,
+          backgroundColor: "rgba(0,0,255,0.2)",
+          borderColor: "rgba(0,0,255,0.2)",
+          pointBorderColor: "#fff",
+          pointBackgroundColor: "rgba(0,0,255,0.2)",
+          data: [3,6,8,1,2]
+        }, {
+          label: "2019",
+          fill: true,
+          backgroundColor: "rgba(255,99,132,0.2)",
+          borderColor: "rgba(255,99,132,1)",
+          pointBorderColor: "#fff",
+          pointBackgroundColor: "rgba(255,99,132,1)",
+          pointBorderColor: "#fff",
+          data: [2,8,7,5,4]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: false,
+        text: 'TCA 1234'
+      }
+    }
+});
+
 
 // -- Abrir panel de TCA al clicar en ellos -- //
 function mostrar_actuacion_info(feature, layer){
@@ -545,7 +852,77 @@ function mostrar_expediente_info(feature, layer){
 	
 	// layer.on("click", function(e){alert(e.target.feature.properties.ID)}) 
 }
-	
+
+
+// -- Abrir mapa al hacer click -- //
+accidente.on("click", function (e) {
+					document.getElementById("pano").style.width = "41%"
+					document.getElementById("pano").style.border = "3px solid #153F7C"
+					setTimeout(panorama(), 10000)
+					})
+
+accidente2.on("click", function (e) {
+					document.getElementById("pano").style.width = "41%"
+					document.getElementById("pano").style.border = "3px solid #153F7C"
+					setTimeout(panorama2(), 10000)
+					})
+
+accidente3.on("click", function (e) {
+					document.getElementById("pano").style.width = "41%"
+					document.getElementById("pano").style.border = "3px solid #153F7C"
+					setTimeout(panorama3(), 10000)
+					})
+
+accidente4.on("click", function (e) {
+					document.getElementById("pano").style.width = "41%"
+					document.getElementById("pano").style.border = "3px solid #153F7C"
+					setTimeout(panorama4(), 10000)
+					})
+
+// -- Ubicación del mapa -- //
+function panorama() {
+        var localizacion = {lat: 43.283072 , lng: -8.520569};
+		var panorama = new google.maps.StreetViewPanorama(
+        document.getElementById('pano'), {
+        position: localizacion,
+        pov: {
+        heading: 34,
+        pitch: 10
+              }
+            });}
+
+function panorama2() {
+        var localizacion = {lat: 43.252537 , lng: -8.433818};
+		var panorama = new google.maps.StreetViewPanorama(
+        document.getElementById('pano'), {
+        position: localizacion,
+        pov: {
+        heading: 34,
+        pitch: 10
+              }
+            });}
+
+function panorama3() {
+        var localizacion = {lat: 43.322227 , lng: -8.410571};
+		var panorama = new google.maps.StreetViewPanorama(
+        document.getElementById('pano'), {
+        position: localizacion,
+        pov: {
+        heading: 34,
+        pitch: 10
+              }
+            });}
+
+function panorama4() {
+        var localizacion = {lat: 43.314611 , lng: -8.606776};
+		var panorama = new google.maps.StreetViewPanorama(
+        document.getElementById('pano'), {
+        position: localizacion,
+        pov: {
+        heading: 34,
+        pitch: 10
+              }
+            });}		
 
 // -- Cambiar capa que se muestra en el mapa -- //
 var capa_base_activa = false;
@@ -554,6 +931,68 @@ function cambio_capa_base(){
 	else {map.removeLayer(googleSat)}
 	capa_base_activa = !capa_base_activa
 	}
+
+
+// -- Añadir accidentes y TCA al mapa --//
+var accidente_activa = false;
+function activar_accidentes(){
+	if (accidente_activa == false) {map.addLayer(accidente)
+	map.addLayer(accidente2)
+	map.addLayer(accidente3)
+	map.addLayer(accidente4)
+	map.addLayer(TCA2018)
+	map.addLayer(TCA2019)}
+	else{
+		map.removeLayer(accidente)
+		map.removeLayer(accidente2)
+		map.removeLayer(accidente3)
+		map.removeLayer(accidente4)
+		map.removeLayer(TCA2018)
+		map.removeLayer(TCA2019)
+	}
+	accidente_activa = !accidente_activa;
+}
+
+
+// -- Abrir informe expediente -- //
+AC_110_1404.on("click", function (e) {
+					document.getElementById("1").style.width = "55%"
+					document.getElementById("1").style.border = "3px solid #153F7C"
+					document.getElementById("1").style.left = "15%"
+					})
+AC_110_2761.on("click", function (e) {
+					document.getElementById("2").style.width = "55%"
+					document.getElementById("2").style.border = "3px solid #153F7C"
+					document.getElementById("2").style.left = "15%"
+					})
+
+AC_415_1854_Coruna.on("click", function (e) {
+					document.getElementById("3").style.width = "55%"
+					document.getElementById("3").style.border = "3px solid #153F7C"
+					document.getElementById("3").style.left = "15%"
+					})
+
+AC_415_1853_Coruna.on("click", function (e) {
+					document.getElementById("4").style.width = "55%"
+					document.getElementById("4").style.border = "3px solid #153F7C"
+					document.getElementById("4").style.left = "15%"
+					})
+
+AC_552_1377_Coruna.on("click", function (e) {
+					document.getElementById("5").style.width = "55%"
+					document.getElementById("5").style.border = "3px solid #153F7C"
+					document.getElementById("5").style.left = "15%"
+					})
+AC_552_1377_Arteixo.on("click", function (e) {
+					document.getElementById("6").style.width = "55%"
+					document.getElementById("6").style.border = "3px solid #153F7C"
+					document.getElementById("6").style.left = "15%"
+					})
+AC_552_1405_Arteixo.on("click", function (e) {
+					document.getElementById("7").style.width = "55%"
+					document.getElementById("7").style.border = "3px solid #153F7C"
+					document.getElementById("7").style.left = "15%"
+					})
 
 
 function street_all(feature, layer){

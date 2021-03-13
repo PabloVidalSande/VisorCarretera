@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VISOR CONCELLO 0.0.1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="index_mobile.css">
+    <script src="https://kit.fontawesome.com/2a67ec3225.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="JS.js"></script>
+</head>
+<body onload="splash()">
+    <div id="splash">
+        <h1 id="bienvenido">BIENVENIDO</h1>
+    </div>
+
+    <div id="menu1" onclick="display_menu()"><img src="img/menu.png" id="menu_icon"></i></div>
+    <div id="menu_desplegado"><div id="cerrar_menu" onclick="close_menu()"></div>
+        <div id="opc1"><i class="far fa-file fa-10x" id="informe_ico"></i></div>
+        <div id="opc2"><i class="fas fa-exclamation-triangle fa-10x" id="alerta_ico"></i></div>
+        <div id="opc3"></div>
+        <div id="opc4"></div>
+        <div id="opc5"></div>
+        <div id="opc6"></div>
+        <div id="opc7"></div>
+        <div id="opc8"></div>
+    </div>
+    <div id="map"></div>
+<script type="text/javascript">
+     
+    var osmLayer = L.tileLayer('https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=28838681c2284942ae5d9415c2e95d48', {
+    maxZoom: 22});
+
+    var map = new L.Map('map');
+    map.setView(new  L.LatLng(43.227439, -8.287675), 18);
+    map.addLayer(osmLayer);
+    
+    // GEOLOCALIZACION
+   
+   
+
+</script>
+</body>
+</html>

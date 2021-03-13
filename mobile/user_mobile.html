@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>VISOR GEN - USER</title>
+	<link rel="stylesheet" type="text/css" href="index_mobile.css">
+	<style type="text/css">
+		html body{background-color: #153F7C;}
+	</style>
+</head>
+<body>
+	<div id="user_rectangle">
+		<input id="username" type="text" name="" value="  Nombre de usuario" onclick='value = ""'>
+		<input id="password" type="password" name="" value="  Contraseña" onclick='value = ""'>
+		<div id="user_login" onclick="iniciar_sesion()">INICIAR SESIÓN</div>
+	</div>
+	<script type="text/javascript">
+		function iniciar_sesion() {
+			var username = document.getElementById('username').value
+			var password = document.getElementById('password').value
+			if (username == "  Nombre de usuario" && password == "  Contraseña" || username == "" && password == "") {alert("introduce nombre y Contraseña")}
+			else{
+				if (username == "admin" && password == 1234) {window.location.href = 'index_mobile.html';}
+				else{window.location.href = 'index_mobile.html'}}	
+				}
+			
+	</script>
+</body>
+</html>

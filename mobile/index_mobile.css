@@ -1,0 +1,81 @@
+html body {height: 100%; width: 100%}
+
+#menu1{position: absolute;
+	  bottom: 0.3%;
+	  left: 0.5%;
+	  width: 15%;
+	  height: 7%;
+	  border-radius: 50%;
+	  background-color: #153F7C;
+	transition-delay: 0.8s;
+	transition: 1s;}
+
+#cloud{position: absolute; font-size: 300%;
+		top: 30%; left: 50%; color: transparent; 
+		transition: 1s;
+		}
+
+#menu1:active {background-color: #00bfff; transition: 0.01s}
+
+#map{position: absolute; top: 0%; left: 0.9%;height: 100%; width: 99%; z-index: -10}
+	  }
+
+#splash{top: 0%; left: 0% ;height: 100%; width: 100%; position: absolute; background-color: #153F7C; transition: 0.5s; transition-delay: 0.5s; z-index: 6}
+#bienvenido {
+    margin-top: 23%;
+    font-size: 600%;
+    font-family: Arial;
+    color: white;
+    text-align: center;
+    -webkit-animation: fadein 2s;}
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }}
+
+#user_rectangle{position: absolute; width: 70%; height: 70%; background-color: white; left: 15%; top: 15%; border-radius: 5%; }
+#logo_altia{position: absolute; width: 40%; height: 40%; left: 30%; top: 8%}
+#username{position: absolute; left: 20%; top: 50%; height: 5%; width: 60%; font-size: 20pt;}
+#password{position: absolute; left: 20%; top: 60%; height: 5%; width: 60%; font-size: 20pt;}
+#user_login{position: absolute; left: 25%; top: 70%; height: 5%; width: 50%; font-size: 20pt; background-color: grey; border-radius: 5%; text-align: center; padding-top: 5%}
+#user_login:active {background-color: #00bfff; transition: 0.01s}
+
+#splash{position: absolute; height: 100%; width: 100%; bottom: 0%; left: 0%; background-color: #153F7C; transition: 0.5s; transition-delay: 0.5s; z-index: 6}
+#bienvenido {
+    margin-top: 60%;
+    font-size: 250%;
+    font-family: Arial;
+    color: white;
+    text-align: center;
+    -webkit-animation: fadein 2s;}
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }}
+
+#menu_icon{position: absolute; height: 50%; width: 50%; z-index: 3; left: 25%; top:25%}
+
+#menu_desplegado{position: absolute; bottom: 0%; left: 0%; width: 100%; height: 0%; background-color: white; transition: 0.3s;}
+#cerrar_menu{position: absolute; height: 5%; width: 8%; left: 4%; bottom: 1%; background-color: red ; z-index: 4; background-color: transparent;}
+
+#opc1{position: absolute; left:  0%; top: 0%; height: 24.5%; width: 49.5%; background-color: #153F7C}
+#opc2{position: absolute; right: 0%; top: 0%; height: 24.5%; width: 49.5%; background-color: #153F7C}
+#opc3{position: absolute; left:  0%; top: 25%; height: 24.5%; width: 49.5%; background-color: #153F7C}
+#opc4{position: absolute; right: 0%; top: 25%; height: 24.5%; width: 49.5%; background-color: #153F7C}
+#opc5{position: absolute; left:  0%; top: 50%; height: 24.5%; width: 49.5%; background-color: #153F7C}
+#opc6{position: absolute; right: 0%; top: 50%; height: 24.5%; width: 49.5%; background-color: #153F7C}
+#opc7{position: absolute; left:  0%; top: 75%; height: 24.5%; width: 49.5%; background-color: #153F7C}
+#opc8{position: absolute; right: 0%; top: 75%; height: 24.5%; width: 49.5%; background-color: #153F7C}
+
+#opc1:active{background-color: #00bfff}
+#opc2:active{background-color: #00bfff}
+#opc3:active{background-color: #00bfff}
+#opc4:active{background-color: #00bfff}
+#opc5:active{background-color: #00bfff}
+#opc6:active{background-color: #00bfff}
+#opc7:active{background-color: #00bfff}
+#opc8:active{background-color: #00bfff}
+
+#informe_ico{position: absolute; font-size: 400%; left: 35%; top: 30%;}
+#alerta_ico{position: absolute; font-size: 400%; right: 30%; top: 30%;}
+
+
+

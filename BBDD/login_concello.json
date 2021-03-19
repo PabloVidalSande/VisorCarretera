@@ -1,0 +1,12 @@
+[
+{"type":"header","version":"5.1.0","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"login_concello"},
+{"type":"table","name":"usuarios","database":"login_concello","data":
+[
+{"dni":"78809181A","correo":"pablo@concello.es","usuario":"Pablo Vidal","contrasena":"a","datos":"\/datos\/tierras"},
+{"dni":"61572398C","correo":"angel@concello.es","usuario":"Angel Castro","contrasena":"a","datos":"\/datos\/aguas"},
+{"dni":"78952786B","correo":"martin@concello.es","usuario":"Martin Ares","contrasena":"a","datos":"\/datos\/vias"},
+{"dni":"12759843D","correo":"Arturo@concello.es","usuario":"Arturo Perez","contrasena":"a","datos":"\/datos\/autopistas"}
+]
+}
+]
